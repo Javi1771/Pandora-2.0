@@ -1,0 +1,704 @@
+/* Estilos generales */
+.bodyContainer {
+  background-color: #1e1e2d; /* Fondo oscuro para la vista completa */
+  min-height: 100vh; /* Altura completa para cubrir la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Espaciado alrededor del contenido */
+}
+
+.container {
+  background: linear-gradient(
+    135deg,
+    #2b2f3a,
+    #121319
+  ); /* Fondo gradiente con transición diagonal */
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra ajustada */
+  padding: 32px; /* Espaciado interno */
+  width: 90%; /* Ancho del contenedor principal */
+  max-width: 1200px; /* Ancho máximo */
+  color: #fff; /* Color del texto */
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.date {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.searchSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #293c4e69;
+}
+
+.searchButton {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.searchButton:hover {
+  background-color: #0056b3;
+}
+
+.results {
+  margin-top: 20px;
+}
+
+.resultCard {
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 12px;
+  border-color: aquamarine;
+  background-color: #11182759;
+}
+
+/* Sección del empleado */
+.pacienteSection {
+  margin-top: 30px;
+}
+
+.subtitle {
+  font-size: 20px;
+  margin-bottom: -14px;
+  padding-top: 20px;
+  margin-left: 10px;
+}
+
+.centeredContainer {
+  display: block;
+  margin-top: 16px;
+}
+
+/* Card principal */
+.cardContainer {
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 15px rgba(87, 87, 87, 0.434); /* Sombra suave */
+  background-color: #1e1e2e;
+  width: 70%;
+  max-width: 800px;
+  text-align: left;
+  margin-right: 40px;
+  transition: all 0.3s ease; /* Suaviza el efecto hover */
+}
+
+.cardContainer:hover {
+  transform: scale(1.02); /* Efecto de hover */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.35); /* Sombra más pronunciada */
+}
+
+.surtimientos_medicoCard:hover {
+  transform: scale(1.02); /* Efecto de hover */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.35); /* Sombra más pronunciada */
+}
+
+/* Nuevo card para sindicato */
+.sindicatoCard {
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.434); /* Sombra suave */
+  background-color: #1a202c;
+  width: 250px;
+  color: white;
+  margin-left: 20px;
+}
+
+.sindicatoTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Contenedor dual */
+.dualCardsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Espacio entre las tarjetas */
+  margin-top: 20px;
+}
+
+.cardContainer p {
+  margin: 12px 0; /* Separación entre las líneas */
+}
+
+.cardContainer strong {
+  color: #ffffff;
+}
+
+.cardContainer span {
+  color: #555;
+}
+
+/* Estilos específicos de la tarjeta */
+.card {
+  height: 150px;
+  border-radius: 15px;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 4px;
+  background: #1e1e2e; /* Color base */
+  box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2); /* Sombra inicial */
+}
+
+.sindicalizado {
+  background: linear-gradient(
+    135deg,
+    #28a7468f,
+    #1e1e2e
+  ); /* Gradiente verde/negro */
+  box-shadow: 0px 4px 15px rgba(40, 167, 69, 0.5); /* Sombra verde */
+}
+
+.noSindicalizado {
+  background: linear-gradient(
+    135deg,
+    #dc3545,
+    #1e1e2e
+  ); /* Gradiente rojo/negro */
+  box-shadow: 0px 4px 15px rgba(220, 53, 69, 0.5); /* Sombra roja */
+}
+
+.cardSubtitle {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.cardSubtitle {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: left;
+  margin: 16px 0 8px 0;
+  padding-left: 8px;
+  border-left: 4px solid #5a76b4;
+}
+
+.time-text {
+  font-size: 50px;
+  margin-top: 0px;
+  margin-left: 15px;
+  font-weight: 600;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.time-sub-text {
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+.day-text {
+  font-size: 18px;
+  margin-top: 0px;
+  margin-left: 15px;
+  font-weight: 500;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.moon {
+  font-size: 20px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover > .moon {
+  font-size: 23px;
+}
+
+/* Error */
+.error {
+  color: red;
+}
+
+/* Switch dentro del contenedor */
+.switchContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  margin-top: 21px;
+}
+
+/* Switch - estilos proporcionados */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  border: 2px solid #383838;
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  left: 0.2em;
+  bottom: 0.2em;
+  background-color: rgb(0, 233, 116);
+  border-radius: inherit;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.switch input:checked + .slider {
+  box-shadow: 0 0 20px rgba(9, 241, 79, 0.8);
+  border: 2px solid #04e763;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(1.5em);
+}
+
+/*estilos card medico especialista*/
+/* Estilos para la card de médico especialista */
+.medicoCard {
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.434); /* Sombra suave */
+  padding: 20px;
+  width: 130%;
+  max-width: 1137px;
+  margin: 20px 3px;
+  margin-top: 34px;
+  color: #fff;
+  text-align: left;
+  background: #1e1e2e;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones */
+}
+
+.medicoCard:hover {
+  transform: scale(1.02); /* Efecto de hover */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.35); /* Sombra más pronunciada */
+}
+
+.medicoCard h3 {
+  font-size: 22px; /* Tamaño del título */
+  font-weight: bold; /* Texto en negrita */
+  color: #ffffff; /* Color del título */
+  margin-bottom: 10px; /* Separación debajo del título */
+}
+
+.medicoCard p {
+  margin: 10px 0; /* Separación entre párrafos */
+  font-size: 16px; /* Tamaño de letra */
+}
+
+.medicoCard strong {
+  color: #ffffff; /* Color destacado para etiquetas */
+}
+
+.medicoCard span {
+  color: #d1d5db; /* Color secundario para datos */
+}
+
+/*CAMMPO DE TEXTO INFO*/
+.medicoInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.medicoDetails {
+  flex: 1;
+  font-size: 16px;
+}
+
+.diagnosticoField {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: -50px;
+}
+
+.diagnosticoTextarea {
+  width: 100%;
+  min-height: 100px;
+  resize: vertical;
+  border-radius: 8px;
+  border: 1px solid #cccccc00;
+  padding: 10px;
+  background-color: #00000029;
+  color: #f1f5f9;
+  font-size: 16px;
+  outline: none;
+}
+
+.diagnosticoTextarea::placeholder {
+  color: #94a3b8;
+}
+
+.diagnosticoTextarea:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 4px rgba(56, 189, 248, 0.5);
+}
+
+/* Estilo para la card del empleado */
+.employeeCard {
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.434); /* Sombra suave */
+  padding: 20px; /* Espaciado interno */
+  color: #ffffff; /* Color de texto blanco */
+  transition: transform 0.2s ease-in-out; /* Transición para hover */
+  background: #1e1e2e;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+}
+
+.employeeCard:hover {
+  transform: scale(1.02); /* Efecto de hover */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.35); /* Sombra más pronunciada */
+}
+
+/* Estilo para el texto dentro de la card */
+.employeeCard p {
+  margin: 12px 0; /* Separación entre líneas */
+  font-size: 1rem; /* Tamaño de fuente */
+}
+
+/* Estilo para los textos destacados dentro de la card */
+.employeeCard strong {
+  color: #ffffff; /* Color distintivo para títulos */
+  margin-right: 15px;
+}
+
+/* Estilo del título de la card del empleado */
+.employeeTitle {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #28c5bb;
+  text-align: left;
+  margin-bottom: 12px;
+  padding-left: 8px;
+  border-left: 4px solid #00cbe4;
+}
+
+/* Row container */
+/* Título para la sección Paciente y Sindicato */
+.sectionTitle {
+  font-size: 1.4rem;
+  margin: 20px 0 10px;
+  color: #708fff;
+  text-align: left;
+  border-left: 4px solid #4a65de;
+  padding-left: 10px;
+}
+
+/* Título para la sección Paciente y Sindicato */
+.sectionTitle2 {
+  font-size: 1.4rem;
+  margin: 35px 0 -15px;
+  color: #62f6bf;
+  text-align: left;
+  border-left: 4px solid #4ade99;
+  padding-left: 10px;
+}
+/* Contenedor row para Paciente y Sindicato */
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+
+
+
+
+
+
+.customHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #1e1e2e, #252836); /* Fondo gradiente oscuro */
+  color: #ffffff; /* Texto en blanco */
+  padding: 16px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+}
+
+.customSearchSection {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.customInput {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #2d2f3a;
+  color: #fff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.customInput:focus {
+  box-shadow: 0 0 5px rgba(0, 255, 98, 0.687);
+}
+
+.customSearchButton {
+  background-color: #4caf50; /* Botón verde */
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.customSearchButton:hover {
+  background-color: #45a049; /* Un tono más oscuro al pasar el mouse */
+}
+
+.customDate {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #d1d5db; /* Gris claro */
+}
+
+.customMedicoInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: right;
+}
+
+.customMedicoInfo span {
+  font-weight: bold;
+  color: #4caf50; /* Verde destacado */
+}
+
+.customMedicoInfo p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+
+
+/*ESTILOS no data*/
+.noDataMessage {
+  text-align: center;
+  color: #ff4d4f; /* Color rojo claro */
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+
+/*estilos aviso info diagnostico*/
+.infoMessage {
+  background-color: #272642; /* Fondo azul muy claro */
+  color: #d5a94a; /* Azul grisáceo oscuro */
+  border-left: 5px solid #5a9bd5; /* Borde izquierdo azul acentuado */
+  border-radius: 6px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  padding: 12px 15px; /* Espaciado interno */
+  margin: 15px 0; /* Espaciado entre elementos */
+  display: flex; /* Alinear ícono y texto */
+  align-items: center;
+  font-size: 0.95rem; /* Tamaño de fuente moderado */
+  font-weight: 500; /* Fuente semi-negrita */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Ícono del aviso */
+.infoIcon {
+  margin-right: 10px; /* Espacio entre ícono y texto */
+  color: #5a9bd5; /* Color azul principal */
+  font-size: 1.3rem; /* Tamaño del ícono */
+}
+
+
+.bannerContainer {
+  width: 100%;
+  margin-bottom: 20px; /* Espacio entre el banner y el contenido */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222436; /* Color de fondo elegante */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra profesional */
+  border-radius: 8px; /* Bordes redondeados */
+  overflow: hidden;
+}
+
+.bannerImage {
+  object-fit: cover; /* Ajusta la imagen sin deformarla */
+  width: 100%; /* La imagen cubre todo el ancho del banner */
+  height: auto; /* Altura automática */
+  max-height: 200px; /* Altura máxima */
+}
+
+
+.successMessage {
+  color: rgb(17, 199, 17);
+}
+
+.errorMessage {
+  color: rgb(255, 208, 0);
+}
+ 
+/*ESTILOS TOOL TIP ESPECIAliadad*/
+.tooltip {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to right, rgba(31, 41, 55, 0.95), rgba(17, 134, 147, 0.95));
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  font-size: 0.9rem;
+  z-index: 1000;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+}
+
+.tooltipHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.tooltipIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(to right, rgba(79, 70, 229, 0.9), rgba(99, 102, 241, 0.9));
+  border-radius: 50%;
+  color: #ffffff;
+  box-shadow: 0px 4px 6px rgba(13, 0, 255, 0.422);
+}
+
+.tooltipTitle {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.tooltipText {
+  color: #d1d5db;
+  line-height: 1.4;
+  font-size: 0.85rem;
+}
+
+.group:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.tooltip::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: rgba(31, 41, 55, 0.95) transparent transparent transparent;
+}
+
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tabButton {
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-bottom: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.tabButton:hover {
+  background-color: #e1e1e1;
+}
+
+.contentContainer {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.slideLeft {
+  transform: translateX(-50%);
+}
+
+.formContent {
+  width: 50%;
+}
+
+.historialContent {
+  width: 50%;
+  display: none;
+}
+
+.slideLeft .historialContent {
+  display: block;
+}

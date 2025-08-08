@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  input[type="number"] {
+    appearance: none;
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+  }
+  
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    display: none;
+  }
+  
+
+/* 🔥 SCROLLBAR ULTRA FUTURISTA 🔥 */
+.futuristic-scroll::-webkit-scrollbar {
+  width: 12px; /* Grosor de la barra */
+}
+
+.futuristic-scroll::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, #0a0a0a, #111827); /* Fondo oscuro y elegante */
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.3); /* Sombra interna con efecto cibernético */
+}
+
+.futuristic-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #00fff0, #0072ff, #a855f7); /* Degradado neón */
+  border-radius: 10px;
+  border: 2px solid #0a0a0a; /* Borde para que resalte más */
+  transition: all 0.3s ease-in-out;
+}
+
+.futuristic-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #ff00ff, #0072ff, #00fff0); /* Cambio de color dinámico */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.8), 0 0 25px rgba(0, 0, 255, 0.6); /* Glow intenso */
+  transform: scale(1.1); /* Hace que se vea más grueso al pasar el mouse */
+}
+
+.futuristic-scroll::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(45deg, #ff0000, #ff00ff, #ffea00); /* Colores de alerta al hacer clic */
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.9), 0 0 35px rgba(255, 255, 0, 0.8);
+}
+
+.futuristic-scroll::-webkit-scrollbar-corner {
+  background: #111827; /* Color de la esquina del scrollbar */
+}

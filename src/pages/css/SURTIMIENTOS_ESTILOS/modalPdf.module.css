@@ -1,0 +1,107 @@
+/* Fondo con glassmorphism y blur */
+/* Fondo con glassmorphism y blur */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(41, 41, 41, 0.6); /* Fondo más oscuro */
+  backdrop-filter: blur(12px); /* Blur marcado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* Por encima de otros elementos */
+  pointer-events: all; /* Recibe todos los eventos */
+  transition: opacity 0.3s ease; /* Transición de opacidad */
+}
+
+/* Contenedor del modal con mayor ancho y alto */
+.modalContent {
+  background: rgb(255 255 255 / 17%);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 90%;           /* Aumenta el ancho */
+  max-width: 1200px;    /* Ancho máximo mayor */
+  max-height: 95vh;     /* Permite ocupar hasta casi el alto de la pantalla */
+  overflow-y: auto;     /* Scroll vertical si es necesario */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra suave */
+  animation: modalFadeIn 0.5s ease;
+  pointer-events: all;
+  z-index: 10001;
+}
+
+/* Animación de entrada */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Ajuste del iframe para visualizar el PDF completo */
+.modalContent iframe {
+  width: 100%;
+  height: 800px;        /* Altura extendida para ver toda la receta */
+  border-radius: 12px;
+  border: 0;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Link de descarga con estilo de botón suave */
+.downloadLink {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(145deg, #2ecc71, #27ae60); /* Gradiente más suave */
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: transform 0.2s ease, background 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.downloadLink:hover {
+  background: linear-gradient(145deg, #27ae60, #2ecc71); /* Cambio de gradiente en hover */
+  transform: translateY(-3px); /* Efecto de elevación en hover */
+}
+
+/* Botón de cerrar con borde suave y efecto hover */
+.closeButton {
+  padding: 0.75rem 1.5rem;
+  background: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.closeButton:hover {
+  background: #c9302c;
+  transform: translateY(-3px); /* Efecto de elevación en hover */
+}
+
+/* Estilo para los mensajes de error */
+.errorText {
+  color: #e74c3c;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+/* Estilo para el texto principal */
+.h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+  text-align: center;
+}

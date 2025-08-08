@@ -1,0 +1,110 @@
+.tableContainer {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #1e1e2f;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding-top: 80px;
+}
+
+.title {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  margin-top: -40px;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 600;
+  text-shadow: 0 0 5px #00ffcc;
+}
+
+/* Estilos generales de la tabla */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #cdd6f4; /* Color del texto */
+  font-size: 0.95rem;
+  border-radius: 8px; /* Añadir bordes redondeados */
+  overflow: hidden; /* Asegurar que el contenido no se desborde */
+}
+
+/* Encabezados de la tabla */
+.table thead tr {
+  background-color: #313244;
+  text-align: left;
+}
+
+.table thead th {
+  padding: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #f5e0dc;
+  border-bottom: 2px solid #45475a;
+}
+
+/* Filas de la tabla */
+.table tbody tr {
+  background-color: #24273a;
+  transition: background-color 0.3s ease;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #303446; /* Color alternado */
+}
+
+.table tbody tr:hover {
+  background-color: #45475a; /* Hover en filas */
+}
+
+/* Celdas de la tabla */
+.table tbody td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #45475a;
+  color: #cdd6f4;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .table thead {
+    display: none; /* Ocultar encabezado en pantallas pequeñas */
+  }
+
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+
+  .table tr {
+    margin-bottom: 0.8rem;
+    border: 1px solid #45475a;
+    border-radius: 8px;
+  }
+
+  .table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+    border: none;
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 1rem;
+    font-weight: bold;
+    color: #f5e0dc;
+  }
+}
+.warning {
+  color: #ffcc00;
+  text-align: center;
+  font-weight: bold;
+}
+
+.error {
+  color: #ff3333;
+  text-align: center;
+  font-weight: bold;
+}

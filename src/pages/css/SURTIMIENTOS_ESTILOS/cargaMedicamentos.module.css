@@ -1,0 +1,148 @@
+/* Contenedor principal del formulario */
+.formContainer {
+  background-color: #131324; /* Mismo fondo oscuro que la tabla */
+  border: 1px solid #2a2a3a;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.formContainer:hover {
+  transform: translateY(-2px);
+}
+
+/* Título del formulario */
+.title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+/* Grupo de entrada */
+.inputGroup {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup label {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Select e input */
+.select,
+.input {
+  padding: 0.75rem;
+  border: 1px solid #2a2a3a;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #1e1e2a;
+  color: #ffffff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.select:focus,
+.input:focus {
+  outline: none;
+  border-color: #7433ff;
+  box-shadow: 0 0 0 2px rgba(116, 51, 255, 0.4);
+}
+
+/* Botones */
+.addButton,
+.saveButton {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  margin-top: 1rem;
+}
+
+.addButton {
+  background: linear-gradient(135deg, #7433ff, #4e229f);
+  color: #ffffff;
+}
+
+.addButton:hover {
+  background: linear-gradient(135deg, #5e2ce6, #3c1d7f);
+  transform: translateY(-2px);
+}
+
+.saveButton {
+  background: linear-gradient(135deg, #ff7a18, #af002d);
+  color: #ffffff;
+}
+
+.saveButton:hover {
+  background: linear-gradient(135deg, #e6670e, #a50021);
+  transform: translateY(-2px);
+}
+
+
+/**ESTILOS ICONOS*/
+/* Iconos al lado del texto en el título */
+.title {
+  display: flex;
+  align-items: center; /* Centra el icono y el texto verticalmente */
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.title i {
+  margin-right: 10px; /* Ajusta la distancia entre el icono y el texto */
+  font-size: 1.7rem; /* Ajusta el tamaño del icono */
+}
+
+/* Ajuste para los iconos en los botones */
+.addButton,
+.saveButton {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centra el icono y el texto dentro del botón */
+}
+
+.addButton i,
+.saveButton i {
+  margin-right: 8px; /* Ajusta el espacio entre el icono y el texto */
+  font-size: 1.3rem; /* Ajusta el tamaño del icono en los botones */
+}
+
+
+
+
+
+/* Aseguramos que el ícono esté a la izquierda del texto */
+.labelWithIcon {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 10px; /* Espacio entre el icono y el texto */
+}
+
+.addButton, .saveButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addButton .icon, .saveButton .icon {
+  margin-right: 10px;
+}

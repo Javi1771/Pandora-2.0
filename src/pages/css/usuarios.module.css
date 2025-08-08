@@ -1,0 +1,853 @@
+/* Fondo de pantalla completa */
+.body {
+  background-color: #1e1e2d;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilos existentes */
+.container {
+  padding: 20px;
+  margin: auto;
+  margin-top: 40px;
+  max-width: 100%;
+  width: 90%;
+  overflow-x: auto;
+  background: rgba(32, 32, 32, 0.162); /* Fondo semi-transparente */
+  backdrop-filter: blur(15px); /* Desenfoque para el efecto de glassmorphism */
+  border-radius: 10px;
+  border: 1px solid rgba(18, 18, 18, 0.3); /* Borde semi-transparente */
+  color: rgb(255, 255, 255);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.349);
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/** Estilos de tabla */
+.table-wrapper {
+  background-color: #1a1a1d; /* Fondo oscuro debajo de la tabla */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra */
+  margin: 20px auto; /* Centrado y margen superior */
+  max-width: 1480px;
+}
+
+/** Estilos de tabla */
+.tableContainer {
+  overflow-x: auto; /* Permite desplazamiento horizontal en pantallas pequeñas */
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #e1e4eb;
+}
+
+.table thead {
+  background-color: #2b2f3a;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #444;
+}
+
+.table th {
+  font-weight: bold;
+}
+
+.table td {
+  text-align: center;
+}
+
+.table th,
+.table td {
+  min-width: 120px; /* Asegura una estructura simétrica */
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #3c3f51;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #2b2f3a;
+}
+
+.table tbody tr:hover {
+  background-color: #4b4f62;
+}
+
+/** ========================= **/
+/** Media Queries Responsivas **/
+/** ========================= **/
+
+/* Pantallas medianas (tablets, etc.) */
+@media (max-width: 768px) {
+  .table th,
+  .table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .table th {
+    text-align: center; /* Mantiene el encabezado alineado al centro */
+  }
+
+  .table td {
+    text-align: center;
+  }
+}
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .table thead {
+    display: none; /* Oculta la cabecera en móviles */
+  }
+
+  .table td {
+    display: block; /* Cada celda ocupa toda la fila */
+    text-align: left;
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  .table td::before {
+    content: attr(data-label); /* Muestra el encabezado correspondiente */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-weight: bold;
+    color: #ffffff; /* Encabezado simulado con color blanco */
+    text-transform: uppercase;
+  }
+
+  .table tr {
+    margin-bottom: 15px; /* Espacio entre las "cards" */
+    display: block; /* Cada fila se convierte en un bloque */
+    border: 1px solid #444;
+    border-radius: 8px;
+    overflow: hidden; /* Evita desbordamientos */
+  }
+}
+
+/*FIN ESTILOS TABLE*/
+
+.buttonContainer {
+  margin-bottom: 20px;
+  display: flex; /* Usar flexbox para alinear botones */
+  justify-content: flex-start; /* Alinear los botones al inicio */
+  flex-wrap: wrap; /* Permitir que los botones se ajusten en líneas múltiples */
+  padding-top: 15px;
+}
+
+.banner {
+  display: block; /* Asegura que la imagen se comporte como un bloque */
+  margin: 0 auto; /* Centra la imagen horizontalmente */
+  width: 100%; /* Ajusta el ancho al 100% del contenedor */
+  max-width: 800px; /* Limita el ancho máximo (ajusta según sea necesario) */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin-bottom: 20px; /* Espacio debajo del banner */
+  border-radius: 10px; /* Bordes redondeados (opcional) */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad (opcional) */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .buttonContainer {
+    flex-direction: column; /* Botones en columna en pantallas pequeñas */
+    align-items: flex-start; /* Alinear los botones a la izquierda */
+  }
+
+  .button {
+    margin-bottom: 10px; /* Espacio entre botones en columna */
+    width: 100%; /* Botones ocupan el 100% del ancho */
+  }
+}
+
+/* From Uiverse.io by TaniaDou */
+.button {
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #f4f0ff;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  flex: 1; /* Permitir que los botones crezcan */
+  min-width: 100px; /* Ancho mínimo para cada botón */
+  margin: 0 0.5rem; /* Agregar un margen horizontal entre los botones */
+}
+
+.button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 0.5rem;
+  background: linear-gradient(
+      180deg,
+      rgba(8, 126, 71, 0) 0%,
+      rgba(8, 126, 67, 0.42) 100%
+    ),
+    rgba(47, 255, 255, 0.24);
+  box-shadow: inset 0 0 12px rgba(151, 200, 255, 0.44);
+  z-index: -1;
+}
+
+.button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      180deg,
+      rgba(8, 126, 16, 0) 0%,
+      rgba(26, 126, 8, 0.42) 100%
+    ),
+    rgba(47, 255, 255, 0.24);
+  box-shadow: inset 0 0 12px rgba(151, 200, 255, 0.44);
+  border-radius: 0.5rem;
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.3s ease-in;
+}
+
+.button:hover::after {
+  opacity: 1;
+}
+
+.button-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 0.5rem;
+  z-index: -1;
+}
+
+.button-border::before {
+  content: "";
+  position: absolute;
+  border-radius: 0.5rem;
+  padding: 1px;
+  inset: 0;
+  background: linear-gradient(
+      180deg,
+      rgba(184, 238, 255, 0.24) 0%,
+      rgba(184, 238, 255, 0) 100%
+    ),
+    linear-gradient(0deg, rgba(184, 238, 255, 0.32), rgba(184, 238, 255, 0.32));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+.dropdown {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.4);
+  color: rgb(255, 255, 255);
+}
+
+/* Fondo oscuro sólido para el overlay del modal */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(36, 36, 36, 0.644); /* Fondo oscuro sólido */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+
+/* Mantener el estilo original del modalContent */
+.modalContent {
+  position: relative;
+  background-color: #2b2f3a;
+  padding: 80px;
+  border-radius: 30px;
+  max-width: 700px;
+  width: 80%;
+  color: #e1e4eb;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  /* Glow Effect */
+  box-shadow: 0 0 80px rgba(0, 247, 255, 0.155),
+    -46px 42px 79px rgba(0, 166, 255, 0.153),
+    14px -35px 35px rgba(115, 0, 255, 0.183),
+    47px 5px 35px rgba(102, 0, 255, 0.146);
+}
+
+/* Encabezado del modal */
+.modalHeader {
+  margin-bottom: 10px;
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Estilo para el formulario del modal en grid */
+.modalForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas */
+  gap: 15px; /* Espacio entre inputs */
+}
+
+/* Inputs en la estructura de grid */
+.modalForm input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #3c3f51;
+  border-radius: 6px;
+  background: #3c3f51;
+  color: #ffffff;
+  caret-color: #b3b3b3;
+  outline: none;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Selector de especialidad y tipo de usuario */
+.modalForm select {
+  width: 100%;
+  padding: 10px;
+  margin: 0;
+  border: 1px solid #2b2f3a;
+  border-radius: 6px;
+  background: #3c3f51;
+  color: #f1f1f1;
+  outline: none;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Efecto al enfocar los inputs */
+.modalForm input:focus,
+.modalForm select:focus {
+  border-color: #00bcd4; /* Borde cian al enfocar */
+  background: #333333; /* Fondo ligeramente más oscuro */
+}
+
+/* Hacer que el botón de envío ocupe toda la fila */
+.formSubmitBtn {
+  grid-column: span 2; /* Botón a lo largo de dos columnas */
+  padding: 12px;
+  background-color: #006f1d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.formSubmitBtn:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para el botón de cerrar */
+.closeButton {
+  grid-column: span 2; /* Cierra modal en fila completa */
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.closeButton:hover {
+  background-color: #d32f2f;
+}
+
+/** ESTILOS MODAL SUCCES USUARIO **/
+.successModal {
+  position: absolute;
+  top: 50px; /* Ajusta la posición según sea necesario */
+  left: 50%; /* Centrado horizontal */
+  transform: translate(-50%, 0); /* Centrado correcto */
+  background-color: #000; /* Color de fondo negro */
+  color: white; /* Texto blanco */
+  padding: 20px 40px; /* Aumentar el tamaño del padding */
+  border-radius: 10px; /* Bordes redondeados */
+  border: 2px solid #39ff14; /* Borde verde neón */
+  z-index: 1000; /* Asegúrate de que esté en la parte superior */
+  box-shadow: 0 0 10px rgba(57, 255, 20, 0.5); /* Sombra para un efecto neón */
+  animation: fadeIn 0.5s, fadeOut 0.5s 2.5s; /* Animaciones de entrada y salida */
+  font-size: 18px; /* Aumentar el tamaño de la fuente */
+  text-align: center; /* Centrar el texto */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.buttonDisabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/**ESTILOS ICONO INPPUT**/
+.inputContainer {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.icon {
+  position: absolute;
+  left: 10px; /* Ajusta según necesites */
+  cursor: pointer;
+}
+
+.inputWithIcon {
+  padding-left: 60px; /* Espacio para el icono */
+}
+
+/**estilos editar y eliminar**/
+.editbutton {
+  display: inline;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 35px;
+  border-radius: 15px;
+  background-color: rgb(255, 242, 95);
+  cursor: pointer;
+  border: 3px solid rgb(255, 201, 201);
+  transition-duration: 0.3s;
+}
+.editbutton {
+  width: 15px;
+}
+.editbutton {
+  width: 17px;
+  transform-origin: right;
+  transition-duration: 0.3s;
+}
+.editbutton:hover .bin-top {
+  transform: rotate(45deg);
+}
+.binbutton:hover {
+  background-color: rgb(255, 0, 0);
+}
+.binbutton:active {
+  transform: scale(0.9);
+}
+
+/* From Uiverse.io by vinodjangid07 */
+.editButton {
+  background-color: rgb(255, 208, 0); /* Color amarillo */
+  border: none;
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+  color: black; /* Color del icono */
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.3s ease; /* Transición suave */
+  margin-right: 10px; /* Añade espacio entre los botones */
+}
+
+.editButton:hover {
+  transform: translateY(
+    -2px
+  ); /* Mueve el botón hacia arriba al pasar el mouse */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta la sombra */
+}
+
+.binButton {
+  background-color: red; /* Color rojo */
+  border: none;
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+  color: white; /* Color del icono */
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.3s ease; /* Transición suave */
+}
+
+.binButton:hover {
+  transform: translateY(
+    -2px
+  ); /* Mueve el botón hacia arriba al pasar el mouse */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Aumenta la sombra */
+}
+
+/* Button.module.css */
+.backButton {
+  background-color: #af4c4c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.butbackButtonton:hover {
+  background-color: #45a049;
+}
+
+/*SELECT BUTTONS OPTIOS*/
+.searchAndActionsContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  gap: 20px;
+  padding-bottom: 30px;
+}
+
+.radioContainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #f1f1f1;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.2);
+  color: #e1e4eb;
+}
+
+.input:focus {
+  border-color: #00bcd4;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.inputError {
+  border-color: #dc3545;
+}
+
+.inputSuccess {
+  border-color: #28a745;
+}
+
+.errorMessage {
+  font-size: 0.875rem;
+  color: #dc3545;
+  margin-top: 5px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.radioInput {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  z-index: -1;
+}
+
+.radioDesign {
+  width: 20px;
+  height: 20px;
+  border-radius: 100px;
+  background: linear-gradient(
+    to right bottom,
+    hsl(154, 97%, 62%),
+    hsl(225, 97%, 62%)
+  );
+  position: relative;
+}
+
+.radioDesign::before {
+  content: "";
+  display: inline-block;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  background: hsl(0, 0%, 100%);
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.radioInput:checked + .radioDesign::before {
+  transform: scale(0);
+}
+
+.labelText {
+  color: hsl(192, 100%, 89%);
+  margin-left: 10px;
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.radioInput:checked ~ .labelText {
+  color: hsl(172, 100%, 50%);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .searchInput {
+    width: 100%;
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .searchInput {
+    width: 100%;
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+}
+
+.button-border::before {
+  content: "";
+  position: absolute;
+  border-radius: 0.5rem;
+  padding: 1px;
+  inset: 0;
+  background: linear-gradient(
+      180deg,
+      rgba(184, 238, 255, 0.24) 0%,
+      rgba(184, 238, 255, 0) 100%
+    ),
+    linear-gradient(0deg, rgba(184, 238, 255, 0.32), rgba(184, 238, 255, 0.32));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  pointer-events: none;
+}
+
+.dropdown {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.4);
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+}
+
+/* Ajustes responsivos para el dropdown */
+@media (max-width: 768px) {
+  .dropdown {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .dropdown {
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+}
+
+/** SEARCH BOX STYLES **/
+.searchBox {
+  display: flex;
+  max-width: 230px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #2f3640;
+  border-radius: 50px;
+  position: relative;
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  padding: 24px 46px 24px 26px;
+  flex-grow: 1;
+}
+
+.searchButton {
+  color: white;
+  position: absolute;
+  right: 8px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(
+    --gradient-2,
+    linear-gradient(90deg, #2af598 0%, #009efd 100%)
+  );
+  border: 0;
+  display: inline-block;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Button hover and active effects */
+.searchButton:hover {
+  color: #fff;
+  background-color: #1a1a1a;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+  transform: translateY(-3px);
+}
+
+.searchButton:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+/** SEARCH BOX STYLES **/
+.searchBox {
+  display: flex;
+  max-width: 230px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #2f3640;
+  border-radius: 50px;
+  position: relative;
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  padding: 24px 46px 24px 26px;
+  flex-grow: 1;
+}
+
+.searchButton {
+  color: white;
+  position: absolute;
+  right: 8px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(
+    --gradient-2,
+    linear-gradient(90deg, #2af598 0%, #009efd 100%)
+  );
+  border: 0;
+  display: inline-block;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Button hover and active effects */
+.searchButton:hover {
+  color: #3e3e3e;
+  background-color: #1a1a1a;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+  transform: translateY(-3px);
+}
+
+.searchButton:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+/** SEARCH BAR RESPONSIVE STYLES **/
+.input[type="text"] {
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  height: 45px;
+  padding-left: 2.5rem;
+  padding-top: 10px;
+  box-shadow: 0 0 0 1.5px #23b1be, 0 0 25px -17px #040b6f;
+  border: 0;
+  border-radius: 10px;
+  background-color: #1d1d1d6c;
+  outline: none;
+  color: #bdbecb;
+  transition: all 0.25s cubic-bezier(0.19, 1, 0.22, 1);
+  cursor: text;
+  z-index: 0;
+  padding-block-end: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .input[type="text"] {
+    max-width: 1000px;
+  }
+
+  .input[type="text"]:hover,
+  .input[type="text"]:focus {
+    max-width: 1040px;
+  }
+}
+
+@media (max-width: 768px) {
+  .input[type="text"] {
+    max-width: 90%;
+    padding: 16px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .input[type="text"] {
+    max-width: 95%;
+    padding: 14px 10px;
+    font-size: 0.9rem;
+    height: 45px;
+  }
+
+  /* Disabling width increase on hover and focus for small screens */
+  .input[type="text"]:hover,
+  .input[type="text"]:focus {
+    max-width: 80%;
+  }
+}

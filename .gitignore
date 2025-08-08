@@ -1,0 +1,6 @@
+# Ignorar absolutamente todo en el repositorio
+/*
+!.gitignore
+!src/
+!README.md
+!middleware.js

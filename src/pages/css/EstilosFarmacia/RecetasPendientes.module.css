@@ -1,0 +1,369 @@
+/* RecetasPendientes.module.css */
+
+/* ===== CONTENEDOR PRINCIPAL (efecto glass) ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  /* Fondo semitransparente con blur para efecto glass */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-radius: 40px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ===== ENCABEZADO (TÍTULO) ===== */
+.titleContainer {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 16px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s;
+}
+
+.titleContainer:hover {
+  transform: scale(1.02);
+}
+
+.title {
+  font-size: 2rem;
+  color: #202020;
+  margin: 0;
+}
+
+.description {
+  font-size: 1rem;
+  color: #282828;
+  margin-top: 8px;
+}
+
+/* ===== ÍCONO A LA IZQUIERDA ===== */
+.iconLeft {
+  margin-right: 6px;
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+/* ===== TARJETAS DE RECETAS ===== */
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  width: 350px;
+  height: 350px;
+  border-radius: 24px;
+  color: #323232;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  overflow: hidden;
+  padding: 16px;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+/* Ejemplo de gradientes pastel para cada tarjeta */
+.card:nth-child(1) {
+  background: linear-gradient(135deg, #A5FFD6, #F3FFE2);
+}
+.card:nth-child(2) {
+  background: linear-gradient(135deg, #FFD3B5, #FDFFB6);
+}
+.card:nth-child(3) {
+  background: linear-gradient(135deg, #B5EAD7, #C7CEEA);
+}
+.card:nth-child(4) {
+  background: linear-gradient(135deg, #FF9C9C, #FFD1A1);
+}
+.card:nth-child(5) {
+  background: linear-gradient(135deg, #AFCBFF, #E7A1FF);
+}
+.card:nth-child(6) {
+  background: linear-gradient(135deg, #DAB4FF, #FFD3B5);
+}
+.card:nth-child(7) {
+  background: linear-gradient(135deg, #F8C3FF, #FFF4C3);
+}
+.card:nth-child(8) {
+  background: linear-gradient(135deg, #FFDAC1, #E2F0CB);
+}
+.card:nth-child(9) {
+  background: linear-gradient(135deg, #B5EAD7, #C7CEEA);
+}
+.card:nth-child(10) {
+  background: linear-gradient(135deg, #FBA6A6, #FFD3B5);
+}
+.card:nth-child(11) {
+  background: linear-gradient(135deg, #AFCBFF, #E7A1FF);
+}
+.card:nth-child(12) {
+  background: linear-gradient(135deg, #ff9a9a, #ff9ce0);
+}
+
+.cardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardIcon {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 4px 0;
+}
+
+.cardSubtitle {
+  font-size: 0.9rem;
+  margin: 2px 0;
+}
+
+.statusTag {
+  display: inline-block;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 12px;
+  padding: 4px 8px;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* Footer con botón */
+.cardFooter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.viewMoreBtn {
+  padding: 6px 12px;
+  background-color: rgba(255,255,255,0.3);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: background-color 0.2s;
+  color: #252525;
+  font-weight: 600;
+}
+
+.viewMoreBtn:hover {
+  background-color: rgba(255,255,255,0.5);
+}
+
+/* ===== PAGINACIÓN ===== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  gap: 8px;
+}
+
+.pageButton {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.pageButton:hover {
+  background-color: #f0f0f0;
+}
+
+.pageButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.active {
+  background-color: #d7f1ff;
+  font-weight: bold;
+}
+
+/* ===== BOTÓN DE REGRESAR ===== */
+.backButtonContainer {
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.backButton {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s;
+}
+
+.backButton:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #000;
+}
+
+/* ===== MODAL OVERLAY ===== */
+.modalOverlay {
+  position: fixed;              /* Ocupa toda la ventana */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+/* ===== MODAL CONTENT (con gradiente) ===== */
+.modalContent {
+  /* Gradiente sutil de 3 colores, difuminando hacia blanco */
+  background: linear-gradient(
+    180deg,
+    #c9e8ff 0%,   /* Azul claro en la parte superior */
+    #e6d2ff 40%,  /* Lila muy suave en el medio */
+    #fff2f2 100%  /* Blanco al final */
+  );
+  width: 90%;
+  max-width: 600px;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  position: relative;
+  animation: fadeIn 0.3s ease; /* Animación de aparición */
+}
+
+/* Animación de aparición suave */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== CABECERA DEL MODAL ===== */
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Botón de cerrar en la esquina */
+.modalCloseBtn {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.modalCloseBtn:hover {
+  color: #000;
+}
+
+/* ===== CUERPO DEL MODAL ===== */
+.modalBody {
+  max-height: 400px;  /* Para que el contenido sea scrollable si es muy largo */
+  overflow-y: auto;
+  margin-top: 8px;
+  padding-right: 4px; /* Un pequeño espacio para el scroll */
+  color: #444;
+}
+
+/* ===== TARJETA DE CADA MEDICAMENTO ===== */
+.medicationCard {
+  background: #ffffff59;
+  border: 1px solid #cecece;
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 55%);
+  transition: transform 0.2s ease;
+}
+
+.medicationCard:hover {
+  transform: translateY(-2px);
+}
+
+/* Fila de información en el medicamento */
+.infoRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0;
+}
+
+.iconLeft {
+  font-size: 1rem;
+  color: #666;
+}
+
+.value {
+  color: #555;
+  font-weight: 500;
+}
+
+
+
+
+
+/* Contenedor principal: organiza las secciones en columna */
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Sección de Recetas Pendientes (fila superior) */
+.recetasContainer {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Sección de Top Medicamentos (fila inferior) */
+.topMedicamentosWrapper {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Resto de tus estilos (backButtonContainer, titleContainer, cardsContainer, etc.)
+   se mantienen según tu implementación actual */

@@ -1,0 +1,2556 @@
+/* Fondo de pantalla completa */
+.body {
+  background-color: #1e1e2d;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Contenedor del banner */
+.bannerContainer {
+  width: 100%;
+  max-width: 1100px;
+  margin-bottom: 20px;
+}
+
+.banner {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Contenedor principal */
+.container {
+  width: 100%;
+  max-width: 1550px;
+  padding: 20px;
+  background-color: #2b2f3a;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: #e1e4eb;
+}
+
+/* Título principal */
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Sección de búsqueda */
+.searchSection {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #4c5362;
+  background-color: #1f222a;
+  color: #ffffff;
+  min-width: 250px;
+}
+
+.searchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(
+    90deg,
+    #00c6ff,
+    #0072ff
+  ); /* Degradado azul-verde */
+  border: none;
+  border-radius: 50px; /* Botón ovalado */
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  transition: all 0.3s ease; /* Transición suave */
+}
+
+.searchButton:hover {
+  background: linear-gradient(
+    90deg,
+    #00a3cc,
+    #005bb5
+  ); /* Cambia el degradado en hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Intensifica la sombra en hover */
+}
+
+.searchButton:active {
+  transform: scale(0.95); /* Efecto de "presionar" */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.searchButtonIcon {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  fill: #ffffff; /* Color de la lupa */
+}
+
+/* Formulario de beneficiario */
+.beneficiaryForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #2b2f3a;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.inputGroup {
+  flex: 1 1 48%;
+  min-width: 280px;
+}
+
+.inputLabel {
+  display: block;
+  margin-bottom: 5px;
+  color: #c7ccd8;
+}
+
+.inputField {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #4c5362;
+  border-radius: 4px;
+  background-color: #1f222a;
+  color: #ffffff;
+}
+
+/* Botón de enviar en el formulario */
+.submitButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #0070f3;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submitButton:hover {
+  background-color: #005bb5;
+}
+
+/* Tabla de beneficiarios */
+.tableContainer {
+  margin-top: 20px;
+  background-color: #2b2f3a;
+  padding: 15px;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeader,
+.tableCell {
+  padding: 8px;
+  border: 1px solid #444;
+  text-align: left;
+  color: #e1e4eb;
+}
+
+.tableHeader {
+  background-color: #3a3f4b;
+  font-weight: bold;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #323748;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .banner {
+    height: auto;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .searchSection {
+    flex-direction: column;
+  }
+
+  .inputGroup {
+    flex: 1 1 100%;
+  }
+
+  .submitButton {
+    font-size: 14px;
+  }
+}
+
+.submitButton:hover {
+  background-color: #005bb5;
+}
+
+/* Tabla de beneficiarios */
+.tableContainer {
+  margin-top: 20px;
+  background-color: #2b2f3a;
+  padding: 15px;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeader,
+.tableCell {
+  padding: 8px;
+  border: 1px solid #444;
+  text-align: left;
+  color: #e1e4eb;
+}
+
+.tableHeader {
+  background-color: #3a3f4b;
+  font-weight: bold;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #323748;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .banner {
+    height: 100px;
+    width: 370px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .searchSection {
+    flex-direction: column;
+  }
+
+  .inputGroup {
+    flex: 1 1 100%;
+  }
+
+  .submitButton {
+    font-size: 14px;
+  }
+}
+
+/* Formulario de beneficiario */
+.beneficiaryForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #2b2f3a;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.inputGroup {
+  flex: 1 1 48%;
+}
+
+.inputLabel {
+  display: block;
+  margin-bottom: 5px;
+  color: #c7ccd8;
+}
+
+.inputField {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #4c5362;
+  border-radius: 4px;
+  background-color: #1f222a;
+  color: #ffffff;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 10px;
+  background-color: #0070f3;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submitButton:hover {
+  background-color: #005bb5;
+}
+
+/* Tabla de beneficiarios */
+.tableContainer {
+  margin-top: 20px;
+  background-color: #2b2f3a;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeader,
+.tableCell {
+  padding: 8px;
+  border: 1px solid #444;
+  text-align: left;
+  color: #e1e4eb;
+}
+
+.tableHeader {
+  background-color: #3a3f4b;
+  font-weight: bold;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #323748;
+}
+
+/* Título principal */
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+/* Sección de búsqueda */
+.searchSection {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
+
+.searchInput {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #4c5362;
+  background-color: #1f222a;
+  color: #ffffff;
+}
+
+/* Mensajes de estado */
+.statusSection {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.status {
+  padding: 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.notFound {
+  color: #ff6b6b;
+  background-color: #3a2b2f;
+}
+
+.found {
+  color: #4caf50;
+  background-color: #2b3a2b;
+}
+
+/* Información del empleado */
+.employeeInfo {
+  background-color: #1e242d;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  color: #c7ccd8;
+}
+
+.employeeInfoTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.employeeInfoText {
+  margin: 5px 0;
+}
+
+/* Formulario de beneficiario */
+.beneficiaryForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #2b2f3a;
+  padding: 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.disabledForm input,
+.disabledForm select {
+  background-color: #444;
+  pointer-events: none;
+}
+
+.inputGroup {
+  flex: 1 1 48%;
+}
+
+.inputLabel {
+  display: block;
+  margin-bottom: 5px;
+  color: #c7ccd8;
+}
+
+
+.submitButton {
+  width: 100%;
+  padding: 10px;
+  background-color: #0070f3;
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.submitButton:hover {
+  background-color: #005bb5;
+}
+
+/* Tabla de beneficiarios */
+.tableContainer {
+  margin-top: 20px;
+  background-color: #2b2f3a;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeader,
+.tableCell {
+  padding: 8px;
+  border: 1px solid #444;
+  text-align: left;
+  color: #e1e4eb;
+}
+
+.tableHeader {
+  background-color: #3a3f4b;
+  font-weight: bold;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #323748;
+}
+
+/* Fondo oscuro con blur al fondo */
+.modalOverlay {
+  background-color: rgba(0, 0, 0, 0.447); /* Fondo oscuro translúcido */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Contenedor del modal - Estilo vidrio esmerilado con efecto neón */
+.modal {
+  position: relative;
+  background: rgb(38 52 66 / 32%);
+  backdrop-filter: blur(15px); /* Efecto vidrio esmerilado */
+  -webkit-backdrop-filter: blur(15px);
+  padding: 40px; /* Aumentar el padding para mayor espacio interno */
+  border-radius: 20px;
+  max-width: 880px;
+  width: 90%;
+  color: #e1e4eb; /* Color de texto claro */
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  /* Box-shadow neón animado */
+  box-shadow: 0 0 20px 4px #ff000022, /* Inicial en rosa */
+              0 0 40px 8px rgba(242, 0, 0, 0.164);
+  animation: neonGlow 12s infinite;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+
+
+/* Formulario interno - Organización */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Títulos de las secciones */
+.fieldset legend {
+  font-size: 20px; /* Tamaño por defecto */
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(238, 255, 240, 0.8));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Responsividad para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+  .fieldset legend {
+    font-size: 18px; /* Reducir ligeramente el tamaño de fuente */
+    margin-bottom: 12px; /* Ajustar el margen inferior */
+  }
+}
+
+/* Responsividad para pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .fieldset legend {
+    font-size: 16px; /* Reducir aún más el tamaño de fuente */
+    margin-bottom: 10px; /* Reducir margen inferior */
+  }
+}
+
+
+/* Estilo para el select */
+.inputField {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(66, 94, 76, 0.2); /* Borde translúcido */
+  background: rgba(27, 27, 27, 0.153); /* Fondo similar al input */
+  color: #e1e4eb; /* Texto claro */
+  width: 100%;
+  transition: all 0.3s ease;
+
+  /* Glow effect */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 15px rgba(147, 147, 147, 0.221);
+}
+
+/* Cambiar el fondo al abrir el menú desplegable */
+.inputField:focus {
+  background: rgba(40, 40, 40, 0.2); /* Fondo ligeramente más brillante */
+  border-color: #00ff73; /* Borde resaltado */
+  outline: none; /* Elimina el borde azul por defecto */
+  box-shadow: 0 0 10px rgba(30, 255, 131, 0.6), 
+              0 0 20px rgba(30, 255, 158, 0.4);
+}
+
+/* Cambiar el fondo de las opciones del menú */
+.inputField option {
+  background: rgba(66, 66, 66, 0.9); /* Fondo oscuro para las opciones */
+  color: #e1e4eb; /* Texto claro */
+}
+
+/* Hover de las opciones dentro del menú */
+.inputField option:hover {
+  background: rgba(0, 102, 255, 0.2); /* Fondo al pasar el cursor */
+}
+
+
+/* Botón de acción */
+.submitButton {
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  /* Gradiente y neón */
+  background: linear-gradient(135deg, #0088ff, #00ccff);
+  box-shadow: 0 0 2px rgba(0, 234, 255, 0.4), 0 0 30px rgba(0, 204, 255, 0.3);
+  border: none;
+}
+
+.submitButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 238, 255, 0.6), 0 0 35px rgba(0, 204, 255, 0.5);
+}
+
+.cancelButton {
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.cancelButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Espaciado y alineación del contenido */
+.inputRow {
+  display: flex;
+  gap: 20px; /* Espaciado entre los inputs */
+  margin-bottom: 15px;
+}
+
+/* Última fila sin margen extra */
+.inputRow:last-of-type {
+  margin-bottom: 0;
+}
+
+
+.inputLabel {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #e1e4eb;
+  display: block;
+}
+
+.inputField {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0);
+  background: rgba(66, 66, 66, 0.153);
+  color: #e1e4eb;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5), 0 0 15px rgba(147, 147, 147, 0.221);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+.inputField:focus {
+  border-color: #1e65ff;
+  outline: none;
+  box-shadow: 0 0 10px rgba(75, 79, 122, 0.6), 0 0 20px rgba(83, 85, 137, 0.4);
+}
+
+/* Botón de continuar */
+.submitButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4caf50; /* Verde elegante */
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submitButton:hover {
+  background-color: #45a049; /* Verde más oscuro */
+  transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+.submitButton:active {
+  transform: scale(0.95); /* Efecto de pulsación */
+}
+
+.submitButton:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.iconLarge {
+  font-size: 1.5rem;
+}
+
+.cancelButton {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.cancelButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Vista previa de imagen */
+.imagePreview img {
+  max-width: 150px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+}
+
+
+
+/* Sección de información del beneficiario */
+.infoSection {
+  flex: 2;
+  padding-right: 20px;
+}
+
+.infoSection p {
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #e1e4eb;
+}
+
+.infoSection strong {
+  color: #ffffff;
+}
+
+/* Contenedor de la imagen */
+
+.beneficiaryImage {
+  border-radius: 10px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .contentContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .infoSection {
+    padding-right: 0;
+  }
+
+  .imageContainer {
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .infoSection p {
+    font-size: 12px;
+  }
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+  .modal {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .modal h2 {
+    font-size: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .inputRow {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .submitButton {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 10px;
+  }
+
+  .inputField,
+  .submitButton {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .inputLabel {
+    font-size: 12px;
+  }
+}
+
+/** ESTILOS SIMÉTRICOS MODAL  beneficiarios**/
+.tableContainer {
+  overflow-x: auto; /* Permite desplazamiento horizontal en pantallas pequeñas */
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #e1e4eb;
+}
+
+.table thead {
+  background-color: #2b2f3a;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #444;
+}
+
+.table th {
+  font-weight: bold;
+}
+
+.table td {
+  text-align: center;
+}
+
+.table th,
+.table td {
+  min-width: 120px; /* Asegura una estructura simétrica */
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #3c3f51;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #2b2f3a;
+}
+
+.table tbody tr:hover {
+  background-color: #4b4f62;
+}
+
+/** ========================= **/
+/** Media Queries Responsivas **/
+/** ========================= **/
+
+/* Pantallas medianas (tablets, etc.) */
+@media (max-width: 768px) {
+  .table th,
+  .table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .table th {
+    text-align: center; /* Mantiene el encabezado alineado al centro */
+  }
+
+  .table td {
+    text-align: center;
+  }
+}
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .table thead {
+    display: none; /* Oculta la cabecera en móviles */
+  }
+
+  .table td {
+    display: block; /* Cada celda ocupa toda la fila */
+    text-align: left;
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  .table td::before {
+    content: attr(data-label); /* Muestra el encabezado correspondiente */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-weight: bold;
+    color: #ffffff; /* Encabezado simulado con color blanco */
+    text-transform: uppercase;
+  }
+
+  .table tr {
+    margin-bottom: 15px; /* Espacio entre las "cards" */
+    display: block; /* Cada fila se convierte en un bloque */
+    border: 1px solid #444;
+    border-radius: 8px;
+    overflow: hidden; /* Evita desbordamientos */
+  }
+}
+
+/*ESTILOS BOTON AGREGAR BENEFIAICARIO*/
+
+.addBeneficiaryButton {
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.7em 1.4em 0.7em 1.1em;
+  color: white;
+  background: linear-gradient(
+    0deg,
+    rgba(20, 167, 62, 1) 0%,
+    rgba(102, 247, 113, 1) 100%
+  );
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.addBeneficiaryButton svg {
+  margin-right: 6px;
+}
+
+.addBeneficiaryButton:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+}
+
+.addBeneficiaryButton:active {
+  transform: scale(0.95); /* Efecto de presión */
+  box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+}
+
+/*ESTILOS SWEET ALERT*/
+.custom-swal-popup {
+  background-color: #2b2f3a; /* Fondo gris oscuro */
+  color: #ffffff; /* Texto blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 0 10px rgba(255, 69, 0, 0.7),
+    /* Capa de sombra roja */ 0 0 20px rgba(255, 140, 0, 0.5),
+    /* Capa de sombra naranja */ 0 0 30px rgba(255, 69, 0, 0.4),
+    /* Capa de sombra roja */ 0 0 40px rgba(255, 140, 0, 0.3); /* Capa de sombra naranja */
+}
+
+/*Estatus del empleado encontrado o no*/
+.statusContainer {
+  margin-bottom: 20px;
+}
+
+.statusCard {
+  padding: 1em;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.found {
+  background-color: #2b2f3a;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.5), 0 0 30px rgba(0, 255, 0, 0.3);
+  border: 1px solid #00ff00;
+}
+
+.notFound {
+  background-color: #2b2f3a;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5), 0 0 30px rgba(255, 0, 0, 0.3);
+  border: 1px solid #ff0000;
+}
+
+.employeeInfo {
+  padding: 1em;
+  border-radius: 8px;
+  background-color: #2b2f3a;
+  color: #e1e4eb;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/*ESTILOS EDIT BUTTON*/
+.editButton {
+  background-color: #ffd700;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.editButton:hover {
+  background-color: #ffbf00;
+}
+
+/*TABLA PARA VER LOS DATOS DEL BENEFICICARIO*/
+.viewButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.closeButton {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo general para la celda de acciones */
+.table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Estilo para el botón de Editar */
+.editButton {
+  background-color: #ffa500; /* Naranja */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.9em;
+  transition: background-color 0.3s;
+}
+
+.editButton:hover {
+  background-color: #e69500; /* Naranja oscuro */
+}
+
+/* Estilo para el botón de Eliminar */
+.deleteButton {
+  background-color: #ff4d4d; /* Rojo */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.9em;
+  transition: background-color 0.3s;
+}
+
+.deleteButton:hover {
+  background-color: #cc0000; /* Rojo oscuro */
+}
+
+/* Estilo para el botón de Ver */
+.viewButton {
+  background-color: #4d94ff; /* Azul */
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 0.9em;
+  transition: background-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewButton:hover {
+  background-color: #0066cc; /* Azul oscuro */
+}
+
+/* Alineación del icono dentro del botón de Ver */
+.viewButton svg {
+  margin-right: 5px;
+}
+
+/* BOTON STATUS BENEFICIARIO */
+.statusButton {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 20px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Estado activo: verde neón con sombra */
+.active {
+  background-color: #28a745; /* Verde sólido */
+  box-shadow: 0px 0px 15px 5px rgba(0, 255, 0, 0.7); /* Sombra verde neón */
+}
+
+/* Estado inactivo: rojo neón con sombra */
+.inactive {
+  background-color: #dc3545; /* Rojo sólido */
+  box-shadow: 0px 0px 15px 5px rgba(255, 0, 0, 0.7); /* Sombra roja neón */
+}
+
+/*ESTILOS DE BACK BUTTON*/
+.backButton {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: #930404;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.backButton:hover {
+  background-color: #470000;
+}
+
+.backButton svg {
+  margin-right: 5px;
+}
+
+/*ESTILOS ESTATUS SINDICATO*/
+/* Beneficiarios.module.css */
+/* Beneficiarios.module.css */
+
+/* Estilo general para el contenedor de la información del empleado */
+.employeeInfo {
+  background-color: #2a2f3a;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Sombra para el contenedor principal */
+}
+
+/* Card del sindicato dentro del contenedor de empleado */
+/* Beneficiarios.module.css */
+
+/* Contenedor principal para alinear detalles y sindicato en una fila */
+.employeeInfoContainer {
+  display: flex;
+  align-items: center; /* Centra verticalmente el card de sindicato */
+  background-color: #2a2f3a;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Sección de los detalles del empleado */
+.employeeDetails {
+  flex: 1; /* Ocupa el espacio restante a la izquierda */
+}
+/* Beneficiarios.module.css */
+
+/* Contenedor principal para alinear detalles y sindicato en una fila */
+.employeeInfoContainer {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten a la siguiente línea en pantallas pequeñas */
+  align-items: center; /* Centra verticalmente el card de sindicato */
+  background-color: #2a2f3a;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  gap: 20px; /* Espacio entre los elementos cuando se ajustan */
+}
+
+/* Sección de los detalles del empleado */
+.employeeDetails {
+  flex: 1; /* Ocupa el espacio restante */
+  min-width: 300px; /* Evita que se reduzca demasiado en pantallas pequeñas */
+}
+
+/* Card de sindicato al lado de los detalles del empleado */
+.sindicatoBadge {
+  margin-left: 20px; /* Separación en pantallas grandes */
+  background-color: #22283b;
+  border-radius: 8px;
+  padding: 10px 15px;
+  text-align: center;
+  color: #ffd700;
+  box-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700; /* Efecto neón */
+}
+
+/* Ajustes del texto del sindicato */
+.sindicatoText {
+  font-weight: bold;
+  font-size: 16px;
+  color: #ffd700;
+}
+
+.sindicatoName {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+/* ========================== */
+/* Media Queries para diseño */
+/* ========================== */
+
+/* Pantallas medianas (tablets, etc.) */
+@media (max-width: 768px) {
+  .employeeInfoContainer {
+    flex-direction: column; /* Cambia a diseño vertical */
+    align-items: flex-start; /* Alinea los elementos al inicio */
+    gap: 10px; /* Reduce el espacio entre elementos */
+  }
+
+  .sindicatoBadge {
+    margin-left: 0; /* Elimina margen innecesario en diseño vertical */
+    width: 100%; /* Toma el ancho completo */
+  }
+
+  .employeeDetails {
+    text-align: left; /* Alinea el texto a la izquierda */
+    width: 100%; /* Ocupa todo el ancho disponible */
+  }
+}
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 480px) {
+  .employeeInfoContainer {
+    padding: 10px; /* Reduce el padding general */
+    gap: 15px; /* Ajusta el espacio entre elementos */
+  }
+
+  .sindicatoBadge {
+    padding: 8px 10px; /* Reduce el padding interno */
+    box-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700, 0 0 15px #ffd700; /* Reduce el efecto neón */
+  }
+
+  .sindicatoText {
+    font-size: 14px; /* Reduce el tamaño de la fuente */
+  }
+
+  .sindicatoName {
+    font-size: 12px; /* Reduce el tamaño de la fuente */
+  }
+}
+
+
+
+/*boton para cerrar el modal*/
+.button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 6em;
+  height: 4em;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.X {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  width: 2em;
+  height: 1.5px;
+  background-color: #fff;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.Y {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  width: 2em;
+  height: 1.5px;
+  background-color: #fff;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: -40%;
+  left: 70%;
+  width: 3em;
+  height: 1.7em;
+  font-size: 16px;
+  background-color: rgb(254, 255, 225);
+  color: #000;
+  border: 1px solid #000;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.button:hover {
+  background-color: rgb(210, 0, 0);
+}
+
+.button:active {
+  background-color: rgb(130, 0, 0);
+}
+
+.button:hover > .close {
+  animation: close 0.2s forwards 1.25s;
+}
+
+@keyframes close {
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Card de vista previa */
+.previewCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #1e1e24;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  width: 150px; /* Ajusta el tamaño según sea necesario */
+  height: 180px;
+  box-shadow: 0 0 10px rgba(0, 166, 255, 0.2);
+}
+
+.previewImage {
+  width: 100%;
+  height: auto;
+  max-height: 120px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.previewText {
+  color: #e1e4eb;
+  font-size: 12px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+/*boton de cancelar beneficiario vista*/
+.cancelButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f44336; /* Rojo elegante */
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cancelButton:hover {
+  background-color: #e53935; /* Rojo más oscuro */
+  transform: scale(1.05); /* Efecto de agrandamiento */
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); /* Más profundidad */
+}
+
+.cancelButton:active {
+  transform: scale(0.95); /* Efecto de pulsación */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Menor profundidad */
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.iconLarge {
+  font-size: 1.5rem;
+}
+
+
+
+
+
+/* Ocultar el input radio por defecto */
+.customRadio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Personalización de los radios */
+.customRadio {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 1rem;
+  user-select: none;
+  margin: 0.5rem 0;
+  padding-left: 2em; /* Espacio para el botón circular */
+}
+
+/* Botón circular para el radio */
+.radioCheckmark {
+  --clr: #0B6E4F;
+  position: absolute;
+  left: 0;
+  top: 0.25em;
+  height: 1.3em;
+  width: 1.3em;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: background-color 300ms ease-in-out, box-shadow 300ms ease-in-out;
+}
+
+/* Cuando está seleccionado, cambiar estilo */
+.customRadio input:checked ~ .radioCheckmark {
+  background-color: var(--clr);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 8px rgba(0, 183, 107, 0.5);
+}
+
+/* Estilo del indicador de selección */
+.radioCheckmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.customRadio input:checked ~ .radioCheckmark:after {
+  display: block;
+  left: 0.45em;
+  top: 0.25em;
+  width: 0.25em;
+  height: 0.5em;
+  border: solid #e0e0e2;
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 rgba(11, 110, 79, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(11, 110, 79, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 13px rgba(11, 110, 79, 0);
+  }
+}
+
+
+
+/*ESTILOS MODAL INFORMARIOCN BENEFICIAIROS*/
+
+/* General Styles */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(10, 10, 10, 0.1); /* Fondo más transparente */
+  backdrop-filter: blur(20px); /* Efecto vidrio más suave */
+  width: 95%;
+  max-width: 815px; /* Modal más ancho */
+  max-height: 90vh; /* Limita la altura */
+  overflow-y: auto; /* Habilita scroll */
+  border-radius: 20px;
+  border: 1px solid rgb(87 87 87);
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Contenido del Modal */
+.modalContent {
+  padding: 3px;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+}
+
+/* Barra de desplazamiento personalizada */
+.modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4));
+  border-radius: 10px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.6));
+}
+
+/* Sección de Imagen */
+.imageSection {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.beneficiaryImage {
+  border-radius: 50%;
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.beneficiaryImage:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 12px 30px rgba(20, 39, 255, 0.8); /* Efecto neon al pasar el mouse */
+  border-color: rgba(67, 20, 255, 0.8);
+}
+
+/* Texto cuando no hay imagen */
+.noImageText {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  font-style: italic;
+}
+
+/* Estilos de las Tarjetas */
+.card {
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.4), rgba(10, 10, 10, 0.5));
+  backdrop-filter: blur(15px);
+  margin-bottom: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+}
+
+.cardTitle {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(90deg, #75d6ff, #6a11cb); /* Título con gradiente neon */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cardList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cardList li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.cardList li strong {
+  color: #ffffff;
+}
+
+/* Botones */
+.buttonsContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.printButton {
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.printButton:hover {
+  transform: translateY(-3px);
+}
+
+.greenButton {
+  background: linear-gradient(135deg, #151515, #20c997);
+}
+
+.greenButton:hover {
+  background: linear-gradient(135deg, #2d5751, #28ffbf);
+  box-shadow: 0px 8px 20px rgba(32, 201, 151, 0.5);
+}
+
+.blueButton {
+  background: linear-gradient(135deg, #192228, #0056b3);
+}
+
+.blueButton:hover {
+  background: linear-gradient(135deg, #447b95, #339af0);
+  box-shadow: 0px 8px 20px rgba(51, 154, 240, 0.5);
+}
+
+.redButton {
+  background: linear-gradient(135deg, #ff6f61, #ff4b4b);
+}
+
+.redButton:hover {
+  background: linear-gradient(135deg, #ff9080, #ff6f61);
+  box-shadow: 0px 8px 20px rgba(255, 111, 97, 0.5);
+}
+
+.orangeButton {
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+}
+
+.orangeButton:hover {
+  background: linear-gradient(135deg, #f7b733, #d35400);
+  box-shadow: 0px 8px 20px rgba(243, 156, 18, 0.5);
+}
+
+
+.iconSmall {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px; /* Espaciado entre el ícono y el texto */
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .modal {
+    width: 100%;
+    max-width: 95%;
+  }
+
+  .cardList li {
+    font-size: 14px;
+  }
+
+  .printButton {
+    padding: 10px 15px;
+    font-size: 12px;
+  }
+}
+
+
+
+/***********************************************/
+
+/*ESTILOS UPLOAD IMAGE*//* Estilo para el contenedor del botón de subir foto */
+.uploadLabel {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Botón visible */
+.uploadButton {
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: linear-gradient(45deg, #5d7aff, #3c8e8f);
+    box-shadow: 0 0 24px #0879ff61;
+    border: 4px solid #0606064f;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, text-shadow 0.3s ease, background-color 0.3s ease;
+    padding: 9px 68px;
+    color: #09090b;
+    font-weight: bold;
+    margin-top: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover para el botón */
+.uploadButton:hover {
+  transform: scale(1.1); /* Ligeramente más grande */
+  background-color: #5dff8b !important;
+  box-shadow: 0 0 40px #08ff9461, 0 0 60px #25ff96; /* Más brillo */
+  text-shadow: 0 0 10px #3bff25; /* Sombra del texto más brillante */
+  border-color: #25ff7c !important;
+}
+
+/* Icono dentro del botón */
+.icon {
+  margin-right: 5px;
+  filter: drop-shadow(2px 2px 5px rgba(0, 0, 0, 0.3)); /* Sombra del icono */
+}
+
+/* Ocultar el input de tipo file */
+.hiddenInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+
+/*span edad calculada estilos*/
+/* Estilo para el span que muestra la edad calculada */
+.ageDisplay {
+  display: inline-block;
+  margin-top: 38px;
+  padding: 13px 10px;
+  background: linear-gradient(45deg, rgb(46 46 46 / 60%), rgba(0, 255, 128, 0.6));
+  border-radius: 10px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 15px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 10px rgba(0, 255, 128, 0.2), inset 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 118px;
+  height: 51px;
+}
+
+/* Efecto hover opcional */
+.ageDisplay:hover {
+  transform: scale(1.05); /* Incrementa ligeramente el tamaño */
+  box-shadow: 0 6px 12px rgba(0, 255, 128, 0.4), inset 0 3px 6px rgba(0, 0, 0, 0.4); /* Sombra más intensa */
+}
+
+
+
+/*ESTILOS CHECKBOXS*/
+/* Wrapper del checkbox */
+.checkboxWrapper {
+  --checkbox-size: 25px;
+  --checkbox-color: #00ff88;
+  --checkbox-shadow: rgba(0, 255, 136, 0.3);
+  --checkbox-border: rgba(0, 255, 136, 0.7);
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* Ocultar el input real */
+.checkboxWrapper input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Estilo del checkmark */
+.checkboxWrapper .checkmark {
+  position: relative;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  border: 2px solid var(--checkbox-border);
+  border-radius: 8px;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px var(--checkbox-shadow);
+  overflow: hidden;
+}
+
+.checkboxWrapper .checkmark::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--checkbox-color), #00ffcc);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform: scale(0) rotate(-45deg);
+}
+
+/* Animación al marcar */
+.checkboxWrapper input:checked ~ .checkmark::before {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+}
+
+/* Icono SVG */
+.checkboxWrapper .checkmark svg {
+  width: 0;
+  height: 0;
+  color: #1a1a1a;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.5));
+}
+
+.checkboxWrapper input:checked ~ .checkmark svg {
+  width: 18px;
+  height: 18px;
+  transform: rotate(360deg);
+}
+
+/* Hover */
+.checkboxWrapper:hover .checkmark {
+  border-color: var(--checkbox-color);
+  transform: scale(1.1);
+  box-shadow:
+    0 0 20px var(--checkbox-shadow),
+    0 0 40px var(--checkbox-shadow),
+    inset 0 0 10px var(--checkbox-shadow);
+}
+
+/* Efecto al marcar */
+.checkboxWrapper input:checked ~ .checkmark {
+  animation: pulse 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 20px var(--checkbox-shadow);
+  }
+  50% {
+    transform: scale(0.9);
+    box-shadow:
+      0 0 30px var(--checkbox-shadow),
+      0 0 50px var(--checkbox-shadow);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px var(--checkbox-shadow);
+  }
+}
+
+/* Etiqueta del checkbox */
+.checkboxWrapper .label {
+  margin-left: 15px;
+  font-family: "Segoe UI", sans-serif;
+  color: var(--checkbox-color);
+  font-size: 18px;
+  text-shadow: 0 0 10px var(--checkbox-shadow);
+  opacity: 0.9;
+  transition: all 0.3s;
+}
+
+.checkboxWrapper:hover .label {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+
+
+/*estilos para el tool tip error CURP*/
+.tooltip {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  color: rgb(0, 98, 255);
+  margin-left: 10px;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  white-space: nowrap;
+  font-size: 12px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/*ESTILOS DE INFO*/
+.fileInfo {
+  font-size: 0.9rem; /* Tamaño acorde al diseño */
+  font-weight: 600; /* Negrita para resaltar */
+  color: #ffffff; /* Blanco para buen contraste */
+  background-color: #1e293b; /* Fondo oscuro acorde al diseño */
+  padding: 6px 10px; /* Espaciado interno */
+  border-radius: 4px; /* Bordes ligeramente redondeados */
+  display: inline-block; /* Para mantenerlo en línea */
+  margin-top: 8px; /* Espaciado superior */
+}
+
+
+
+
+/* Contenedor general */
+.inputRow2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Reducir el espacio entre elementos */
+  margin: 1rem 0;
+  padding: 0.8rem 1rem; /* Espaciado interno compacto */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px; /* Bordes redondeados suaves */
+  background-color: rgb(0 0 0 / 5%);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Añadir un toque de elevación */
+}
+
+/* Etiquetas */
+.inputLabel2 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+/* Envoltorio del input tipo archivo */
+.fileInputWrapper2 {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 0.4rem 0.6rem;
+}
+
+/* Input tipo archivo (oculto) */
+.fileInput2 {
+  display: none;
+}
+
+/* Botón para seleccionar archivo */
+.uploadButton2 {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  border: none;
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.uploadButton2:hover {
+  background: linear-gradient(90deg, #0056b3, #003f7f);
+}
+
+.uploadButton3 {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(90deg, #ff7300, #b35c00);
+  border: none;
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.uploadButto32:hover {
+  background: linear-gradient(90deg, #b35f00, #7f4400);
+}
+
+/* Nombre del archivo */
+.fileName2 {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Información del archivo actual */
+.fileInfo2 {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0.5rem;
+}
+
+/* Botón para ver constancia */
+.viewButton2 {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid #1d72b8;
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.viewButton2:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #1d72b8;
+  border-color: #0056b3;
+}
+.viewButton3 {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid #b8651d;
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.viewButton3:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #b8721d;
+  border-color: #b36b00;
+}
+
+
+.inputField {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(66, 94, 76, 0.2); /* Borde original */
+  background: rgba(27, 27, 27, 0.153); /* Fondo similar al input */
+  color: #e1e4eb; /* Texto claro */
+  width: 100%;
+  transition: all 0.3s ease;
+  
+}
+
+.inputField.hasText {
+  border-color: #00ff73d1; /* Borde verde */
+  box-shadow: 0 0 10px rgba(30, 255, 131, 0.361), 0 0 20px rgba(30, 255, 158, 0.347); /* Sombra verde */
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.iconLarge {
+  font-size: 1.5rem; /* Ajusta el tamaño según sea necesario */
+}
+
+
+
+/*ESTILOS DEL SEGUNDO MDOAL VER ARVHIVOS*/
+
+/* Animación para abrir (fadeIn) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación para cerrar (fadeOut) */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* Overlay para el modal de documentos */
+.documentsModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor del modal de documentos */
+.documentsModalContainer {
+  background: linear-gradient(135deg, #1e1e2869 0%, #2b2b3666 100%);
+  border-radius: 16px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+  padding: 24px;
+  max-width: 450px;
+  width: 90%;
+  text-align: center;
+  animation: fadeIn 0.4s ease-out; /* Animación por defecto */
+  color: white;
+  z-index: 1200;
+}
+
+/* Añade animación para cerrar */
+.documentsSlideOut {
+  animation: fadeOut 0.3s ease-out;
+}
+
+/* Título del modal */
+.documentsModalTitle {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #feb692;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor de botones */
+.documentsButtonsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 16px;
+}
+
+/* Botones de documentos */
+.documentButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #feb692 0%, #ea5455 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(234, 84, 85, 0.4);
+  transition: all 0.3s ease;
+}
+
+.documentButton:hover {
+  background: linear-gradient(135deg, #ea5455 0%, #feb692 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(234, 84, 85, 0.6);
+}
+
+.documentButton:active {
+  transform: translateY(2px);
+  box-shadow: none;
+  opacity: 0.9;
+}
+
+/* Botón de cerrar */
+.closeDocumentButton {
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 175px;
+  border-radius: 15px;
+  border: none;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: all 0.9s ease;
+}
+
+.closeDocumentButton:hover {
+  background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(231, 76, 60, 0.4);
+}
+
+.closeDocumentButton svg {
+  font-size: 20px;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .closeDocumentButton {
+    font-size: 14px;
+    padding: 10px 100px; /* Reduce el padding horizontal */
+  }
+
+  .closeDocumentButton svg {
+    font-size: 18px; /* Reduce el tamaño del ícono */
+  }
+}
+
+@media (max-width: 480px) {
+  .closeDocumentButton {
+    font-size: 12px;
+    padding: 8px 134px; /* Reduce aún más el padding */
+  }
+
+  .closeDocumentButton svg {
+    font-size: 16px; /* Reduce el tamaño del ícono para pantallas más pequeñas */
+  }
+}
+
+/* Iconos en los botones */
+.documentsButtonsWrapper .documentButton svg {
+  font-size: 20px;
+}
+
+
+/*estilos modal validacion esposo/concubino */
+/* Estilos personalizados para el modal */
+.custom-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 15px;
+  background-color: hwb(124 21% 52%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.custom-modal-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+.custom-modal-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #e74c3c;
+  margin-bottom: 10px;
+}
+
+.custom-modal-message {
+  font-size: 16px;
+  color: #555555;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.custom-modal-button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: #345e40;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-modal-button:hover {
+  background-color: #434190;
+}
+
+.custom-modal-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(90, 103, 216, 0.5);
+}
+
+
+
+/* Contenedor principal del botón */
+.cameraContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Estilos principales del botón */
+.cameraButton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background-color: #4a4a4a;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      padding: 13px 34px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+}
+
+/* Hover: animación de brillo */
+.cameraButton:hover {
+  background-color: #636363; /* Gris más claro al pasar el cursor */
+  transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+/* Estilo del ícono de cámara */
+.cameraIcon {
+  font-size: 1.2rem; /* Ajustar tamaño del ícono */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Efecto animado al hacer hover en el ícono */
+.cameraButton:hover .cameraIcon {
+  transform: scale(1.2); /* Aumentar ligeramente el ícono */
+  color: #f5f5f5; /* Color más claro para resaltar */
+}
+
+/* Animación pulsante al hacer clic */
+.cameraButton:active {
+  transform: scale(0.95); /* Reducir tamaño momentáneamente */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Estado deshabilitado del botón */
+.cameraButton:disabled {
+  background-color: #a1a1a1;
+  color: #e0e0e0;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+
+
+.imagePreview {
+  margin-top: 20px;
+  text-align: center;
+}
+.imagePreview img {
+  border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* beneficiarios.module.css */
+
+/* Estilo para los botones de carga manual */
+.uploadButton2 {
+  display: flex;
+  align-items: center;
+  background-color: #6c757d; /* Gris */
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+.uploadButton2:hover {
+  background-color: #5a6268;
+}
+
+/* Ocultar el input de archivo real */
+.hiddenInput {
+  display: none;
+}
+
+/* Estilo para los nombres de archivos seleccionados */
+.fileName2 {
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Estilo para los botones de ver archivos */
+.viewButton3 {
+  background-color: #28a745; /* Verde */
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+.viewButton3:hover {
+  background-color: #218838;
+}
+
+/* Estilo para los botones de carga desde Clave Única */
+.uploadButton3 {
+  display: flex;
+  align-items: center;
+  background-color: #17a2b8; /* Azul */
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.uploadButton3:hover {
+  background-color: #138496;
+}
+
+
+
+
+
+
+
+
+.iconButton {
+  margin-left: 8px;
+  background-color: #f0f0f0;
+  color: #19456a;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  padding: 5px 8px;
+  cursor: pointer;
+
+  display: inline-flex; 
+  align-items: center;
+  justify-content: center;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.iconButton:hover {
+  background-color: #e6e6e6;
+  color: #0f2f4a;
+}
+
+
+/*ESTILOS PARA EL CANVA DE FIRMA BENEFICIARIO Y BOTONES*/
+/* Botón que abre el modal de firma */
+.signatureButton {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Contenedor principal (modal) para la firma */
+.signatureModal {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+}
+
+/* Título dentro del modal de firma */
+.signatureTitle {
+  margin-bottom: 10px;
+  text-align: center;
+  color: #333;
+}
+
+/* Estilo para el canvas de SignatureCanvas */
+.signatureCanvas {
+  border: 2px dashed #000;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Contenedor de los botones dentro del modal de firma */
+.signatureButtons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+/* Botón “Limpiar” */
+.clearButton {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Botón “Guardar Firma” */
+.saveButton {
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
