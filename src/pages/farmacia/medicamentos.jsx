@@ -59,7 +59,7 @@ const Medicamentos = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-900 via-black to-grey-700 text-teal-200">
+    <div className="min-h-screen text-white bg-gradient-to-b from-blue-900 via-black to-grey-700">
       <div className="flex flex-col lg:flex-row">
 
         {/* Contenido principal */}
@@ -108,7 +108,7 @@ const Medicamentos = () => {
                 >
                   <div className="flex flex-col gap-8">
                     {/* Formulario para registrar medicamento */}
-                    <div className="bg-[#0b2424] p-6 rounded-2xl shadow-[0_0_40px_rgba(0,255,255,0.2)] border border-teal-500">
+                    <div className="bg-gradient-to-b from-gray-900 to-gray-800 p-6 rounded-2xl">
                       <FormMedicamento
                         onAddMedicamento={addMedicamento}
                         message={message}
@@ -116,7 +116,7 @@ const Medicamentos = () => {
                     </div>
 
                     {/* Tabla de medicamentos */}
-                    <div className="bg-[#0b2424] p-6 rounded-2xl shadow-[0_0_40px_rgba(0,255,255,0.2)] border border-teal-500">
+                    <div className="bg-gradient-to-b from-gray-900 to-gray-800 p-6 rounded-2xl">
                       <MedicamentosTable
                         medicamentos={medicamentos || []}
                         onDelete={deleteMedicamento}

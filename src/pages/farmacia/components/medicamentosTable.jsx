@@ -58,20 +58,19 @@ const MedicamentosTable = ({ medicamentos = [], onDelete, onEdit }) => {
   };
 
   return (
-    <div className="w-full mx-auto p-8 bg-gradient-to-br from-[#040f0f] to-[#0c1e1e] rounded-3xl border border-teal-500 border-opacity-40 shadow-[0_0_30px_#0ff]">
+    <div className="w-full mx-auto bg-gradient-to-b from-gray-900 to-gray-800 rounded-3xl ">
       <h2
-        className="text-5xl font-extrabold text-teal-300 mb-8 text-center tracking-wider uppercase"
-        style={{ textShadow: "0 0 15px #0ff" }}
+        className="text-2xl font-semibold text-blue-300 mb-8 text-center uppercase"
       >
         📋 Medicamentos Registrados
       </h2>
 
       {/* Campo de búsqueda */}
-      <div className="flex justify-center mb-8">
+      <div className="flex justify-center mb-8 ">
         <input
           type="text"
           placeholder="🔍 Buscar Medicamento, Clasificación, EAN..."
-          className="w-2/3 p-4 rounded-full bg-[#0b2424] text-teal-200 border border-teal-500 focus:ring-4 focus:ring-teal-400 transition duration-300 shadow-[0_0_10px_#0ff] outline-none"
+          className="w-2/3 p-4 rounded-full bg-[#888888] text-white border border-blue-500 focus:ring-4 focus:ring-blue-400 transition duration-300"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
@@ -109,7 +108,7 @@ const MedicamentosTable = ({ medicamentos = [], onDelete, onEdit }) => {
                 const status =
                   stockStatusMapping[med.stockStatus.toLowerCase()] || {
                     label: med.stockStatus,
-                    color: "bg-gray-500",
+                    color: "bg-gradient-to-b from-gray-900 to-gray-800",
                   };
 
                 return (

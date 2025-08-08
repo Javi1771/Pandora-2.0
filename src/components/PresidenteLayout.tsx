@@ -231,7 +231,7 @@ const PresidenteLayout: React.FC<PresidenteLayoutProps> = ({ children }) => {
             </ul>
           </nav>
           <button
-            className="flex items-center space-x-4 p-4 mt-4 bg-gradient-to-r from-blue-800 to-blue-500 rounded-lg shadow-lg cursor-pointer transform transition-all duration-300 hover:scale-105 group hover:shadow-[0_0_25px_10px_rgba(245,56,85,0.8)]"
+            className="flex items-center space-x-4 p-4 mt-4 bg-gradient-to-r from-blue-800 to-blue-500 rounded-lg shadow-lg cursor-pointer transform transition-all duration-300 hover:scale-105"
             onClick={handleLogout}
           >
             <MdLogout className="text-blue-300 text-3xl transition-transform duration-300 group-hover:scale-110" />

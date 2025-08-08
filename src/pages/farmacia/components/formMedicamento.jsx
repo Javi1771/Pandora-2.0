@@ -10,7 +10,7 @@ const FormMedicamento = ({ onAddMedicamento, message }) => {
     minimo: "",
     maximo: "",
     medida: "",
-    precio: "" // <-- Nuevo campo precio
+    precio: "", // <-- Nuevo campo precio
   });
 
   // Estado para las unidades de medida traídas de la API
@@ -53,7 +53,7 @@ const FormMedicamento = ({ onAddMedicamento, message }) => {
       minimo: parseInt(formData.minimo, 10),
       maximo: parseInt(formData.maximo, 10),
       medida: formData.medida,
-      precio: parseFloat(formData.precio) // <-- Convertimos el precio a número con decimales
+      precio: parseFloat(formData.precio), // <-- Convertimos el precio a número con decimales
     });
 
     // Reset del formulario
@@ -66,20 +66,18 @@ const FormMedicamento = ({ onAddMedicamento, message }) => {
       minimo: "",
       maximo: "",
       medida: "",
-      precio: ""
+      precio: "",
     });
   };
 
   return (
     <div className="max-w-7xl mx-auto rounded-3xl ">
-      <h2
-        className="text-2xl font-semibold text-blue-300 mb-8 text-center tracking-wider uppercase"
-      >
+      <h2 className="text-2xl font-semibold text-blue-300 mb-8 text-center tracking-wider uppercase">
         💊 Registro de Medicamentos
       </h2>
 
       {message && (
-        <p className="bg-gradient-to-b from-gray-900 to-gray-800 p-3 rounded mb-4 text-center font-medium">
+        <p className="bg-gradient-to-b from-gray-900 to-gray-800 p-2 rounded mb-4 text-center font-medium">
           {message}
         </p>
       )}
@@ -101,9 +99,9 @@ const FormMedicamento = ({ onAddMedicamento, message }) => {
             onChange={handleChange}
             placeholder="Nombre + gramaje o ml"
             required
-            className="p-2 rounded-md border border-blue-300 bg-[#3d3d3e] text-white-200 
+            className="p-2 rounded-md border border-blue-300 bg-[#3d3d3e] text-grey-200 
                        focus:outline-none focus:ring-2 focus:ring-blue-300 
-                       placeholder:text-white transition-colors"
+                       placeholder:text-white-100 transition-colors"
           />
         </div>
 
@@ -111,7 +109,7 @@ const FormMedicamento = ({ onAddMedicamento, message }) => {
         <div className="flex flex-col">
           <label
             htmlFor="clasificacion"
-            className="mb-1 font-semibold text-teal-300"
+            className="mb-1 font-semibold text-blue-300"
           >
             Clasificación:
           </label>
@@ -121,9 +119,9 @@ const FormMedicamento = ({ onAddMedicamento, message }) => {
             value={formData.clasificacion}
             onChange={handleChange}
             required
-            className="p-2 rounded-md border border-teal-500 bg-[#041616] text-teal-200 
-                       focus:outline-none focus:ring-2 focus:ring-cyan-500 
-                       placeholder:text-teal-500 transition-colors"
+            className="p-2 rounded-md border border-blue-300 bg-[#3d3d3e] text-grey-200 
+                       focus:outline-none focus:ring-2 focus:ring-blue-300 
+                       placeholder:text-white-100 transition-colors"
           >
             <option value="">Seleccione una opción</option>
             <option value="p">PATENTE</option>
@@ -135,7 +133,7 @@ const FormMedicamento = ({ onAddMedicamento, message }) => {
 
         {/* Unidad de Medida */}
         <div className="flex flex-col">
-          <label htmlFor="medida" className="mb-1 font-semibold text-teal-300">
+          <label htmlFor="medida" className="mb-1 font-semibold text-blue-300">
             Unidad de Medida:
           </label>
           <select
@@ -144,9 +142,9 @@ const FormMedicamento = ({ onAddMedicamento, message }) => {
             value={formData.medida}
             onChange={handleChange}
             required
-            className="p-2 rounded-md border border-teal-500 bg-[#041616] text-teal-200 
-               focus:outline-none focus:ring-2 focus:ring-cyan-500 
-               placeholder:text-teal-500 transition-colors"
+            className="p-2 rounded-md border border-blue-300 bg-[#3d3d3e] text-grey-200 
+                       focus:outline-none focus:ring-2 focus:ring-blue-300 
+                       placeholder:text-white-100 transition-colors"
           >
             <option value="">Seleccione una unidad</option>
             {/* Se generan las opciones desde las unidades obtenidas de la API */}
@@ -162,7 +160,7 @@ const FormMedicamento = ({ onAddMedicamento, message }) => {
         <div className="flex flex-col">
           <label
             htmlFor="presentacion"
-            className="mb-1 font-semibold text-teal-300"
+            className="mb-1 font-semibold text-blue-300"
           >
             Presentación:
           </label>
@@ -180,15 +178,15 @@ const FormMedicamento = ({ onAddMedicamento, message }) => {
             }}
             placeholder="Piezas por caja o sobre o frasco"
             required
-            className="p-2 rounded-md border border-teal-500 bg-[#041616] text-teal-200 
-                       focus:outline-none focus:ring-2 focus:ring-cyan-500 
-                       placeholder:text-teal-500 transition-colors"
+            className="p-2 rounded-md border border-blue-300 bg-[#3d3d3e] text-grey-200 
+                       focus:outline-none focus:ring-2 focus:ring-blue-300 
+                       placeholder:text-white-100 transition-colors"
           />
         </div>
 
         {/* EAN */}
         <div className="flex flex-col">
-          <label htmlFor="ean" className="mb-1 font-semibold text-teal-300">
+          <label htmlFor="ean" className="mb-1 font-semibold text-blue-300">
             EAN (Código de Barras):
           </label>
           <input
@@ -200,15 +198,15 @@ const FormMedicamento = ({ onAddMedicamento, message }) => {
             onChange={handleChange}
             placeholder="Ingresa el código de barras"
             required
-            className="p-2 rounded-md border border-teal-500 bg-[#041616] text-teal-200 
-                       focus:outline-none focus:ring-2 focus:ring-cyan-500 
-                       placeholder:text-teal-500 transition-colors"
+            className="p-2 rounded-md border border-blue-300 bg-[#3d3d3e] text-grey-200 
+                       focus:outline-none focus:ring-2 focus:ring-blue-300 
+                       placeholder:text-white-100 transition-colors"
           />
         </div>
 
         {/* Piezas */}
         <div className="flex flex-col">
-          <label htmlFor="piezas" className="mb-1 font-semibold text-teal-300">
+          <label htmlFor="piezas" className="mb-1 font-semibold text-blue-300">
             Piezas:
           </label>
           <input
@@ -219,15 +217,15 @@ const FormMedicamento = ({ onAddMedicamento, message }) => {
             onChange={handleChange}
             placeholder="Ingresa el número de piezas en almacén"
             required
-            className="p-2 rounded-md border border-teal-500 bg-[#041616] text-teal-200 
-                       focus:outline-none focus:ring-2 focus:ring-cyan-500 
-                       placeholder:text-teal-500 transition-colors"
+            className="p-2 rounded-md border border-blue-300 bg-[#3d3d3e] text-grey-200 
+                       focus:outline-none focus:ring-2 focus:ring-blue-300 
+                       placeholder:text-white-100 transition-colors"
           />
         </div>
 
         {/* Mínimo */}
         <div className="flex flex-col">
-          <label htmlFor="minimo" className="mb-1 font-semibold text-teal-300">
+          <label htmlFor="minimo" className="mb-1 font-semibold text-blue-300">
             Mínimo:
           </label>
           <input
@@ -238,15 +236,15 @@ const FormMedicamento = ({ onAddMedicamento, message }) => {
             onChange={handleChange}
             placeholder="Stock mínimo permitido"
             required
-            className="p-2 rounded-md border border-teal-500 bg-[#041616] text-teal-200 
-                       focus:outline-none focus:ring-2 focus:ring-cyan-500 
-                       placeholder:text-teal-500 transition-colors"
+            className="p-2 rounded-md border border-blue-300 bg-[#3d3d3e] text-grey-200 
+                       focus:outline-none focus:ring-2 focus:ring-blue-300 
+                       placeholder:text-white-100 transition-colors"
           />
         </div>
 
         {/* Máximo */}
         <div className="flex flex-col">
-          <label htmlFor="maximo" className="mb-1 font-semibold text-teal-300">
+          <label htmlFor="maximo" className="mb-1 font-semibold text-blue-300">
             Máximo:
           </label>
           <input
@@ -257,15 +255,15 @@ const FormMedicamento = ({ onAddMedicamento, message }) => {
             onChange={handleChange}
             placeholder="Stock máximo permitido"
             required
-            className="p-2 rounded-md border border-teal-500 bg-[#041616] text-teal-200 
-                       focus:outline-none focus:ring-2 focus:ring-cyan-500 
-                       placeholder:text-teal-500 transition-colors"
+            className="p-2 rounded-md border border-blue-300 bg-[#3d3d3e] text-grey-200 
+                       focus:outline-none focus:ring-2 focus:ring-blue-300 
+                       placeholder:text-white-100 transition-colors"
           />
         </div>
 
         {/* Precio */}
         <div className="flex flex-col">
-          <label htmlFor="precio" className="mb-1 font-semibold text-teal-300">
+          <label htmlFor="precio" className="mb-1 font-semibold text-blue-300">
             Precio (Costo):
           </label>
           <input
@@ -277,9 +275,9 @@ const FormMedicamento = ({ onAddMedicamento, message }) => {
             placeholder="Ej. 123.45"
             step="0.01"
             required
-            className="p-2 rounded-md border border-teal-500 bg-[#041616] text-teal-200 
-                       focus:outline-none focus:ring-2 focus:ring-cyan-500 
-                       placeholder:text-teal-500 transition-colors"
+            className="p-2 rounded-md border border-blue-300 bg-[#3d3d3e] text-grey-200 
+                       focus:outline-none focus:ring-2 focus:ring-blue-300 
+                       placeholder:text-white-100 transition-colors"
           />
         </div>
 
