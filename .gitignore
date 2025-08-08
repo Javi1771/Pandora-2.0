@@ -1,11 +1,11 @@
 # Ignorar absolutamente todo en el repositorio
-# /*
-# !.gitignore
-# !src/
-# !README.md
-# !middleware.js
+/*
+!.gitignore
+!src/
+!README.md
+!middleware.js
 
-node_modules/
-.next/
-.github/
-logs/
+# node_modules/
+# .next/
+# .github/
+# logs/
