@@ -1,12 +1,8 @@
-# Ignorar absolutamente todo en el repositorio
+# Ignorar todo en la raíz
 /*
-/*
-!.gitignore
-!src/
-!README.md
-!middleware.js
 
-# node_modules/
-# .next/
-# .github/
-# logs/
+# Permitir estos archivos/carpetas (desde la raíz)
+!/.gitignore
+!/src/
+!/README.md
+!/middleware.js
