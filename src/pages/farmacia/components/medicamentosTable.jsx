@@ -54,7 +54,7 @@ const MedicamentosTable = ({ medicamentos = [], onDelete, onEdit }) => {
     //   style: 'currency',
     //   currency: 'MXN'
     // }).format(precio);
-    return `$${precio.toFixed(2)}`;
+    return `$${precio.toFixed(2)}`; 
   };
 
   return (
