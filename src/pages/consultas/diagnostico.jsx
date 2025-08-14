@@ -7,6 +7,7 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import { FormularioContext } from "/src/context/FormularioContext";
 import AccionesConsulta from "./AccionesConsulta";
 import { showCustomAlert } from "../../utils/alertas";
+import { PageHeader } from "../../utils/PageHeader";
 
 const formatearFecha = (fecha) => {
   if (!fecha) return "N/A";
@@ -273,48 +274,15 @@ const Diagnostico = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-900 via-black to-grey-700 text-white px-6 py-8 md:px-16">
-      {/* Encabezado */}
-      <div className="relative rounded-2xl p-8 mb-12 ">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center space-x-6">
-            <div className="relative">
-              <Image
-                src="/login_servicio_medico.png"
-                alt="Consulta Icono"
-                width={150}
-                height={150}
-                className="h-36 w-36 rounded-full shadow-[0px_0px_30px_10px_rgba(255,255,255,0.3)]"
-              />
-              <div className="absolute top-0 left-0 w-full h-full rounded-full border-4 border-dotted border-cyan-400 animate-spin-slow"></div>
-            </div>
-            <div>
-              <h1 className="text-5xl font-semibold text-blue-300 drop-shadow-lg">
-                Consulta General
-              </h1>
-              <p className="text-lg mt-2 text-gray-300 font-semibold tracking-wide italic">
-                Innovación Médica Inteligente
-              </p>
-            </div>
-            
-          </div>
-          <div className="mt-6 md:mt-0 text-center md:text-right">
-            <p className="text-lg font-semibold text-gray-400">Médico:</p>
-            <p className="text-2xl font-bold text-blue-300 tracking-wide">
-              {nombreMedico}
-            </p>
-            
-          </div>
-          
-        </div>
-              {/* Botón regresar */}
-      <div className="mt-6 md:mt-0 text-center md:text-right">
-        <button
-          onClick={handleRegresar}
-        >
-          ← Regresar
-        </button>
-      </div>
-      </div>
+      <PageHeader
+  title="Consulta General"
+  subtitle="Innovación Médica Inteligente"
+  imageSrc="/login_servicio_medico.png"
+  doctorName={nombreMedico}
+  onBack={handleRegresar}
+  statusLabel="Activo"
+/>
+
 
       {/* Tabla de Pacientes */}
       <div className="relative bg-gradient-to-b from-gray-900 to-gray-800 p-8 rounded-2xl ">
@@ -375,9 +343,9 @@ const Diagnostico = () => {
         >
           <div className="bg-gray-800 p-4 md:p-6 rounded-lg shadow-lg">
             <div className="mb-4 md:mb-8">
-                      <h2 className="text-2xl font-semibold text-blue-300 text-center mb-8 tracking-wide drop-shadow-lg">
-CAPTURA DE CONSULTA
-        </h2>
+              <h2 className="text-2xl font-semibold text-blue-300 text-center mb-8 tracking-wide drop-shadow-lg">
+                CAPTURA DE CONSULTA
+              </h2>
               <ul className="list-disc pl-5 text-sm md:text-base">
                 <li className="flex items-center">
                   <span className="font-semibold">Folio:</span>

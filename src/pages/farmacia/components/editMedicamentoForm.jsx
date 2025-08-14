@@ -138,8 +138,8 @@ await showCustomAlert(
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex items-center justify-center z-50">
-      <div className="relative bg-gradient-to-br from-[#040f0f] to-[#0c1e1e] text-teal-200 border border-teal-500 border-opacity-30 rounded-2xl shadow-[0_0_40px_rgba(0,255,255,0.2)] p-8 w-full max-w-lg mx-4">
-        <h2 className="text-3xl font-extrabold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400 drop-shadow-[0_0_8px_rgba(0,255,255,0.8)] uppercase tracking-wide">
+      <div className="relative bg-gradient-to-br from-[#040f0f] to-[#0c1e1e] text-blue-200 border border-blue-500 border-opacity-30 rounded-2xl shadow-[0_0_40px_rgba(0,255,255,0.2)] p-8 w-full max-w-lg mx-4">
+        <h2 className="text-3xl font-extrabold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 drop-shadow-[0_0_8px_rgba(0,255,255,0.8)] uppercase tracking-wide">
           Editar Medicamento
         </h2>
 
@@ -153,7 +153,7 @@ await showCustomAlert(
               value={formData.medicamento}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 bg-[#0b2424] border border-teal-600 rounded-lg text-gray-300 shadow-inner"
+              className="w-full px-4 py-2 bg-[#0b2424] border border-blue-600 rounded-lg text-gray-300 shadow-inner"
             />
           </div>
 
@@ -165,7 +165,7 @@ await showCustomAlert(
               value={formData.clasificacion}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 bg-[#041616] border border-teal-500 rounded-lg text-teal-200 shadow-inner focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-colors"
+              className="w-full px-4 py-2 bg-[#041616] border border-blue-500 rounded-lg text-blue-200 shadow-inner focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-colors"
             >
               <option value="p">PATENTE</option>
               <option value="g">GENERICO</option>
@@ -176,7 +176,7 @@ await showCustomAlert(
 
           {/* Unidad de Medida */}
           <div className="flex flex-col">
-            <label htmlFor="medida" className="mb-1 font-semibold text-teal-300">
+            <label htmlFor="medida" className="mb-1 font-semibold text-blue-300">
               Unidad de Medida:
             </label>
             <select
@@ -185,7 +185,7 @@ await showCustomAlert(
               value={String(formData.medida)}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 bg-[#041616] border border-teal-500 rounded-lg text-teal-200 shadow-inner focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-colors"
+              className="w-full px-4 py-2 bg-[#041616] border border-blue-500 rounded-lg text-blue-200 shadow-inner focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-colors"
             >
               {formData.medida === "" && (
                 <option value="">Seleccione una unidad</option>
@@ -219,7 +219,7 @@ await showCustomAlert(
               value={formData.presentacion}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 bg-[#0b2424] border border-teal-600 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
+              className="w-full px-4 py-2 bg-[#0b2424] border border-blue-600 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
               placeholder="*Cantidad de producto por caja o frasco*"
             />
           </div>
@@ -239,7 +239,7 @@ await showCustomAlert(
               }}
               required
               placeholder="*Escanea el código (cualquier cantidad de dígitos)*"
-              className="w-full px-4 py-2 bg-[#0b2424] border border-teal-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
+              className="w-full px-4 py-2 bg-[#0b2424] border border-blue-500 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
             />
           </div>
 
@@ -252,7 +252,7 @@ await showCustomAlert(
               value={formData.piezas || ""}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 bg-[#0b2424] border border-teal-600 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
+              className="w-full px-4 py-2 bg-[#0b2424] border border-blue-600 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
               placeholder="*Cantidad de cajas o frascos en stock*"
             />
           </div>
@@ -266,7 +266,7 @@ await showCustomAlert(
               value={formData.maximo || ""}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 bg-[#0b2424] border border-teal-600 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
+              className="w-full px-4 py-2 bg-[#0b2424] border border-blue-600 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
               placeholder="*Cantidad máxima permitida*"
             />
           </div>
@@ -280,7 +280,7 @@ await showCustomAlert(
               value={formData.minimo || ""}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 bg-[#0b2424] border border-teal-600 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
+              className="w-full px-4 py-2 bg-[#0b2424] border border-blue-600 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
               placeholder="*Cantidad mínima permitida*"
             />
           </div>
@@ -295,7 +295,7 @@ await showCustomAlert(
               value={formData.precio}
               onChange={handleChange}
               required
-              className="w-full px-4 py-2 bg-[#0b2424] border border-teal-600 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-teal-500 transition"
+              className="w-full px-4 py-2 bg-[#0b2424] border border-blue-600 rounded-lg shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
               placeholder="Ej. 123.45"
             />
           </div>
@@ -304,7 +304,7 @@ await showCustomAlert(
           <div className="flex justify-between gap-4 mt-4">
             <button
               type="submit"
-              className="flex-1 bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 rounded-lg shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-teal-400"
+              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded-lg shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-blue-400"
             >
               Guardar Cambios
             </button>

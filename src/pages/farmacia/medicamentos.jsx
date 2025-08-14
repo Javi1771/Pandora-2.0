@@ -6,6 +6,7 @@ import FormMedicamento from "./components/formMedicamento";
 import MedicamentosTable from "./components/medicamentosTable";
 import EditMedicamentoForm from "./components/editMedicamentoForm";
 import { motion, AnimatePresence } from "framer-motion";
+import PageHeader from "../../utils/PageHeader"; // ajusta la ruta si lo moviste a /components
 
 // Función auxiliar para leer cookies en el cliente
 const getCookie = (name) => {
@@ -23,7 +24,7 @@ const Medicamentos = () => {
     message,
   } = useMedicamentos();
 
-  const [activeView, ] = useState("registrar");
+  const [activeView] = useState("registrar");
   const [selectedMedicamento, setSelectedMedicamento] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [closingModal, setClosingModal] = useState(false);
@@ -38,7 +39,6 @@ const Medicamentos = () => {
 
   // Cuando hacemos clic en "Editar" en la tabla, abrimos el modal
   const handleEdit = (medicamento) => {
-    // medicamento ya incluye "precio", "medicamento", "piezas", etc.
     setSelectedMedicamento(medicamento || {});
     setIsModalOpen(true);
   };
@@ -58,43 +58,29 @@ const Medicamentos = () => {
     exit: { opacity: 0 },
   };
 
+  // Props dinámicos para el header
+  const statusLabel =
+    role === null ? "Cargando…" : role === "9" ? "Sólo consulta" : "Edición";
+
+  const headerSubtitle =
+    "Registro y control de medicamentos · Sólo administradores y encargados de farmacia";
+
   return (
     <div className="min-h-screen text-white bg-gradient-to-b from-blue-900 via-black to-grey-700">
       <div className="flex flex-col lg:flex-row">
-
         {/* Contenido principal */}
         <div className="flex-grow relative">
-          {/* Botón de salida */}
-          <button
-            onClick={handleSalir}
-            className="absolute top-4 left-4 flex items-center gap-2 px-6 py-3 
-                       bg-gradient-to-r from-teal-500 to-cyan-500 
-                       hover:from-teal-600 hover:to-cyan-600 
-                       text-white font-extrabold uppercase 
-                       tracking-wide rounded-full shadow-2xl 
-                       transition-transform duration-300 
-                       transform hover:scale-105 
-                       focus:outline-none focus:ring-2 focus:ring-teal-400"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-5 h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-            Salir
-          </button>
-
           {/* Contenedor centrado con padding */}
           <div className="container mx-auto px-4 py-6">
+            {/* Header global */}
+            <PageHeader
+              title="Gestión de Medicamentos"
+              subtitle={headerSubtitle}
+              imageSrc="/login_servicio_medico.png" // cambia por tu ícono de farmacia si tienes otro
+              onBack={handleSalir}
+              statusLabel={statusLabel}
+            />
+
             {/* Si rol !== "9", mostramos el formulario y la tabla */}
             {role !== "9" ? (
               activeView === "registrar" && (
@@ -163,7 +149,6 @@ const Medicamentos = () => {
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.3 }}
             >
-              {/* Dentro de EditMedicamentoForm ya gestionas 'precio' */}
               <EditMedicamentoForm
                 medicamento={selectedMedicamento}
                 onEdit={(updatedMedicamento) => {
