@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import { showCustomAlert } from "../../utils/alertas";
-
 import Cookies from "js-cookie";
 import { FormularioContext } from "/src/context/FormularioContext";
+import { createPortal } from "react-dom";
 
-//* ============  🔹 HELPER PARA FORMATEAR FECHAS 🔹  ============ */
+/* ============  🔹 HELPER PARA FORMATEAR FECHAS 🔹  ============ */
 const normalizeDateForSQL = (value, start) => {
   if (!value) return null;
   if (typeof value === "string" && !value.includes("T")) return value;
@@ -18,7 +18,76 @@ const normalizeDateForSQL = (value, start) => {
     ` ${start ? "00:00:00.000" : "23:59:00.000"}`
   );
 };
-//* ============================================================= */
+/* ============================================================= */
+
+/* ==================== Tooltip flotante en portal ==================== */
+function FloatingTooltip({ anchorRef, open, onClose, children, offset = 10, placement = "top" }) {
+  const [mounted, setMounted] = useState(false);
+  const [coords, setCoords] = useState({ top: 0, left: 0 });
+  const portalNodeRef = useRef(null);
+
+  useEffect(() => {
+    const node = document.createElement("div");
+    node.setAttribute("data-portal", "tooltip-root");
+    document.body.appendChild(node);
+    portalNodeRef.current = node;
+    setMounted(true);
+    return () => {
+      if (portalNodeRef.current) {
+        document.body.removeChild(portalNodeRef.current);
+        portalNodeRef.current = null;
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!open || !anchorRef?.current) return;
+
+    const update = () => {
+      const rect = anchorRef.current.getBoundingClientRect();
+      let top = placement === "bottom" ? rect.bottom + offset : rect.top - offset;
+      let left = rect.left + rect.width / 2;
+
+      // clamp horizontal
+      const vw = window.innerWidth;
+      const margin = 12;
+      left = Math.max(margin, Math.min(left, vw - margin));
+
+      setCoords({ top, left });
+    };
+
+    update();
+    window.addEventListener("scroll", update, true);
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update, true);
+      window.removeEventListener("resize", update);
+    };
+  }, [open, offset, placement, anchorRef]);
+
+  if (!mounted || !open || !portalNodeRef.current) return null;
+
+  return createPortal(
+    <div
+      className="fixed z-[2147483646] pointer-events-none"
+      style={{ top: coords.top, left: coords.left, transform: "translate(-50%, -100%)" }}
+      aria-hidden={!open}
+    >
+      <div className="absolute inset-0 -z-10 blur-xl opacity-50 bg-gradient-to-r from-emerald-500/15 via-indigo-500/15 to-cyan-500/15 rounded-2xl" />
+      <div className="relative pointer-events-auto max-w-[92vw] sm:max-w-xs" onMouseLeave={onClose}>
+        <div className="p-4 rounded-2xl border border-white/10 shadow-2xl bg-gradient-to-br from-gray-900/95 to-gray-800/95 backdrop-blur-md">
+          {children}
+        </div>
+        <div
+          className="w-3 h-3 bg-gradient-to-br from-gray-900/95 to-gray-800/95 border-r border-b border-white/10"
+          style={{ position: "absolute", left: "50%", transform: "translate(-50%, 2px) rotate(45deg)", bottom: "-6px" }}
+        />
+      </div>
+    </div>,
+    portalNodeRef.current
+  );
+}
+/* ==================================================================== */
 
 const AccionesConsulta = ({
   claveConsulta,
@@ -26,8 +95,7 @@ const AccionesConsulta = ({
   clavepaciente,
   clavenomina,
 }) => {
-  const { todosCompletos, formulariosCompletos } =
-    useContext(FormularioContext);
+  const { todosCompletos, formulariosCompletos } = useContext(FormularioContext);
   const [prioridad, setPrioridad] = useState("");
   const [loading, setLoading] = useState(false);
   const [tooltipMessage, setTooltipMessage] = useState({
@@ -36,27 +104,18 @@ const AccionesConsulta = ({
     icon: "⚠️",
   });
 
-  //* Verificación de props
-  useEffect(() => {
-    // console.log("Props recibidas en AccionesConsulta:", {
-    //   claveConsulta,
-    //   limpiarFormulario,
-    //   clavepaciente,
-    //   clavenomina,
-    // });
+  const router = useRouter();
 
+  useEffect(() => {
     if (!claveConsulta) console.warn("⚠️ claveConsulta no está definido.");
     if (!clavepaciente) console.warn("⚠️ clavepaciente no está definido.");
     if (!clavenomina) console.warn("⚠️ clavenomina no está definido.");
-  }, [claveConsulta, limpiarFormulario, clavepaciente, clavenomina]);
+  }, [claveConsulta, clavepaciente, clavenomina]);
 
   useEffect(() => {
     setTooltipMessage(tooltipFaltante());
   }, [todosCompletos, formulariosCompletos]);
 
-  const router = useRouter();
-
-  //* Tooltip para formularios incompletos
   const tooltipFaltante = () => {
     const nombresLegibles = {
       DatosAdicionales: "Diagnóstico",
@@ -65,9 +124,8 @@ const AccionesConsulta = ({
       Incapacidades: "Incapacidades",
     };
 
-    //* Incluye todas las pantallas que no estén completas
     const faltantes = Object.entries(formulariosCompletos)
-      .filter(([pantalla, completo]) => !completo)
+      .filter(([, completo]) => !completo)
       .map(([pantalla]) => nombresLegibles[pantalla] || pantalla);
 
     if (faltantes.length === 0) {
@@ -80,16 +138,12 @@ const AccionesConsulta = ({
 
     return {
       title: "Formularios incompletos",
-      description: `Faltan los siguientes formularios: ${faltantes.join(
-        ", "
-      )}.`,
+      description: `Faltan los siguientes formularios: ${faltantes.join(", ")}.`,
       icon: "⚠️",
     };
   };
 
-  //* Limpieza de localStorage
   const limpiarCacheLocalStorage = () => {
-    //console.log("🧹 Limpiando localStorage...");
     localStorage.removeItem("diagnosticoTexto");
     localStorage.removeItem("motivoConsultaTexto");
     localStorage.removeItem("PaseEspecialidad");
@@ -99,81 +153,51 @@ const AccionesConsulta = ({
     localStorage.removeItem("alergiasTexto");
   };
 
-  //* Guardar datos adicionales
   const guardarDatosAdicionales = async () => {
     try {
-      //console.log("📤 Guardando datos adicionales...");
       const diagnostico = localStorage.getItem("diagnosticoTexto") || "";
       const motivoConsulta = localStorage.getItem("motivoConsultaTexto") || "";
       const alergias = localStorage.getItem("alergiasTexto") || "";
       const claveUsuarioCookie = Cookies.get("claveusuario");
-      const claveusuario = claveUsuarioCookie
-        ? parseInt(claveUsuarioCookie, 10)
-        : null;
+      const claveusuario = claveUsuarioCookie ? parseInt(claveUsuarioCookie, 10) : null;
 
       if (!diagnostico || !motivoConsulta) {
-        throw new Error(
-          "El diagnóstico y el motivo de consulta son obligatorios."
-        );
+        throw new Error("El diagnóstico y el motivo de consulta son obligatorios.");
       }
 
-      //console.log("🔍 Datos enviados al backend (datos adicionales):", {
-      //   claveConsulta,
-      //   diagnostico,
-      //   motivoConsulta,
-      //   alergias,
-      //   claveusuario,
-      // });
-
-      const response = await fetch(
-        "/api/pacientes-consultas/diagnostico_observaciones_guardar",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            claveConsulta,
-            diagnostico,
-            motivoconsulta: motivoConsulta,
-            alergias,
-            claveusuario,
-          }),
-        }
-      );
+      const response = await fetch("/api/pacientes-consultas/diagnostico_observaciones_guardar", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          claveConsulta,
+          diagnostico,
+          motivoconsulta: motivoConsulta,
+          alergias,
+          claveusuario,
+        }),
+      });
 
       if (!response.ok) {
         const error = await response.json();
-        throw new Error(
-          error.message || "Error al guardar los datos adicionales."
-        );
+        throw new Error(error.message || "Error al guardar los datos adicionales.");
       }
-
-      //console.log("✅ Datos adicionales guardados correctamente.");
     } catch (error) {
       console.error("❌ Error al guardar datos adicionales:", error);
       throw error;
     }
   };
 
-  //* Guardar medicamentos
   const guardarMedicamentos = async () => {
     try {
-      //console.log("📤 Guardando medicamentos...");
-
       const cachedMedicamentos = localStorage.getItem("medicamentos") || "[]";
       const decisionTomada = localStorage.getItem("decisionTomada");
-
-      //console.log("🛠️ Decisión tomada al guardar medicamentos:", decisionTomada );
-      //console.log("📦 Medicamentos cargados del localStorage:", cachedMedicamentos );
 
       let medicamentos = [];
       try {
         medicamentos = JSON.parse(cachedMedicamentos);
       } catch (error) {
-        console.error(
-          "❌ Error al parsear los medicamentos de localStorage:",
-          error
-        );
-        localStorage.setItem("medicamentos", JSON.stringify([])); //! Reiniciar si hay error
+        console.error("❌ Error al parsear los medicamentos de localStorage:", error);
+        localStorage.setItem("medicamentos", JSON.stringify([]));
         throw new Error("Error al leer los medicamentos almacenados.");
       }
 
@@ -182,32 +206,28 @@ const AccionesConsulta = ({
         medicamentosPayload = {
           folioReceta: claveConsulta,
           decisionTomada: "no",
-          medicamentos: [], //! Array vacío
+          medicamentos: [],
           piezas: 0,
           resurtir: 0,
           mesesResurtir: null,
         };
       } else {
-        //* Si la decisión es "si", se valida que existan medicamentos y se arma el payload
         if (!Array.isArray(medicamentos) || medicamentos.length === 0) {
           throw new Error("❌ No hay medicamentos para guardar.");
         }
         medicamentosPayload = {
           folioReceta: claveConsulta,
           decisionTomada,
-          medicamentos: medicamentos.map((medicamento) => ({
-            descMedicamento: medicamento.medicamento,
-            indicaciones: medicamento.indicaciones.trim(),
-            cantidad: medicamento.tratamiento.trim(),
-            piezas: medicamento.piezas,
-            resurtir: medicamento.resurtir === "si" ? 1 : 0,
-            mesesResurtir:
-              medicamento.resurtir === "si" ? medicamento.mesesResurtir : null,
+          medicamentos: medicamentos.map((m) => ({
+            descMedicamento: m.medicamento,
+            indicaciones: m.indicaciones.trim(),
+            cantidad: m.tratamiento.trim(),
+            piezas: m.piezas,
+            resurtir: m.resurtir === "si" ? 1 : 0,
+            mesesResurtir: m.resurtir === "si" ? m.mesesResurtir : null,
           })),
         };
       }
-
-      //console.log("📡 Payload preparado para el backend:", medicamentosPayload);
 
       const response = await fetch("/api/medicamentos/guardar", {
         method: "POST",
@@ -215,151 +235,89 @@ const AccionesConsulta = ({
         body: JSON.stringify(medicamentosPayload),
       });
 
-      //console.log("🔄 Respuesta recibida:", response);
-
       const contentType = response.headers.get("content-type");
       if (!contentType || !contentType.includes("application/json")) {
         const errorText = await response.text();
-        console.error(
-          "❌ El servidor respondió con un error no JSON:",
-          errorText
-        );
+        console.error("❌ Respuesta no JSON:", errorText);
         throw new Error(`Respuesta inesperada del servidor: ${errorText}`);
       }
 
-      const responseData = await response.json();
-      //console.log("✅ Respuesta JSON recibida correctamente:", responseData);
+      await response.json();
     } catch (error) {
       console.error("❌ Error al guardar medicamentos:", error);
       throw error;
     }
   };
 
-  //* Sincronización de prioridad al cambiar selección
   useEffect(() => {
-    const cachedEspecialidad = localStorage.getItem(
-      `PaseEspecialidad:${claveConsulta}`
-    );
+    const cachedEspecialidad = localStorage.getItem(`PaseEspecialidad:${claveConsulta}`);
     if (cachedEspecialidad) {
-      const parsedEspecialidad = JSON.parse(cachedEspecialidad);
-      if (parsedEspecialidad.prioridad) {
-        // console.log(
-        //   "🔄 Sincronizando prioridad al montar:",
-        //   parsedEspecialidad.prioridad
-        // );
-        setPrioridad(parsedEspecialidad.prioridad);
-      } else {
-        console.warn("⚠️ Prioridad no encontrada en localStorage.");
-      }
+      const parsed = JSON.parse(cachedEspecialidad);
+      if (parsed.prioridad) setPrioridad(parsed.prioridad);
     }
   }, [claveConsulta]);
 
-  //* Guardar pase a especialidad
   const guardarPaseEspecialidad = async () => {
     try {
-      //console.log("📤 Guardando pase a especialidad...");
-
-      const cachedEspecialidad = JSON.parse(
-        localStorage.getItem(`PaseEspecialidad:${claveConsulta}`) || "{}"
-      );
-
-      const paseEspecialidadPayload = {
+      const cached = JSON.parse(localStorage.getItem(`PaseEspecialidad:${claveConsulta}`) || "{}");
+      const payload = {
         claveConsulta: String(claveConsulta),
-        seasignoaespecialidad:
-          cachedEspecialidad.pasarEspecialidad === "no" ? "N" : "S",
-        claveEspecialidad:
-          cachedEspecialidad.pasarEspecialidad === "no"
-            ? null
-            : cachedEspecialidad.especialidadSeleccionada,
-        observaciones:
-          cachedEspecialidad.pasarEspecialidad === "no"
-            ? null
-            : cachedEspecialidad.observaciones,
-        prioridad:
-          cachedEspecialidad.pasarEspecialidad === "no"
-            ? null
-            : cachedEspecialidad.prioridad,
+        seasignoaespecialidad: cached.pasarEspecialidad === "no" ? "N" : "S",
+        claveEspecialidad: cached.pasarEspecialidad === "no" ? null : cached.especialidadSeleccionada,
+        observaciones: cached.pasarEspecialidad === "no" ? null : cached.observaciones,
+        prioridad: cached.pasarEspecialidad === "no" ? null : cached.prioridad,
         clavenomina: String(clavenomina),
         clavepaciente: String(clavepaciente),
       };
 
-      // console.log(
-      //   "🔍 Datos preparados para el backend (pase a especialidad):",
-      //   paseEspecialidadPayload
-      // );
-
       const response = await fetch("/api/especialidades/guardarEspecialidad", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(paseEspecialidadPayload),
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
         const error = await response.json();
-        console.error(
-          "❌ Error del servidor al guardar pase a especialidad:",
-          error
-        );
-        throw new Error(
-          error.message || "Error al guardar pase a especialidad."
-        );
+        throw new Error(error.message || "Error al guardar pase a especialidad.");
       }
-
-      //console.log("✅ Pase a especialidad guardado correctamente.");
     } catch (error) {
       console.error("❌ Error al guardar pase a especialidad:", error);
       throw error;
     }
   };
 
-  //* Actualizar clavestatus
   const actualizarClavestatus = async (nuevoEstatus) => {
     try {
-      //console.log("📤 Actualizando clavestatus a:", nuevoEstatus);
-      const response = await fetch(
-        "/api/pacientes-consultas/actualizarClavestatus",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ claveConsulta, clavestatus: nuevoEstatus }),
-        }
-      );
+      const response = await fetch("/api/pacientes-consultas/actualizarClavestatus", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ claveConsulta, clavestatus: nuevoEstatus }),
+      });
 
       if (!response.ok) {
         const error = await response.json();
         throw new Error(error.message || "Error al actualizar el estatus.");
       }
-
-      //console.log(`✅ Clavestatus actualizado exitosamente a ${nuevoEstatus}.`);
     } catch (error) {
       console.error("❌ Error al actualizar clavestatus:", error);
       throw error;
     }
   };
 
-  //* Guardar incapacidad
   const guardarIncapacidad = async () => {
     try {
-      //console.log("📤 Guardando incapacidad...");
       const cachedIncapacidad = localStorage.getItem("Incapacidad") || "{}";
-      const { fechaInicio, fechaFin, diagnostico } =
-        JSON.parse(cachedIncapacidad);
+      const { fechaInicio, fechaFin, diagnostico } = JSON.parse(cachedIncapacidad);
 
       const payload = {
         claveConsulta,
         clavenomina,
-        fechaInicial: fechaInicio || null,
-        fechaFinal: fechaFin || null,
         fechaInicial: normalizeDateForSQL(fechaInicio, true),
         fechaFinal: normalizeDateForSQL(fechaFin, false),
-        diagnostico:
-          diagnostico ||
-          "Sin Observaciones, No Se Asignó Incapacidad En Esta Consulta",
+        diagnostico: diagnostico || "Sin Observaciones, No Se Asignó Incapacidad En Esta Consulta",
         estatus: 1,
         clavepaciente,
       };
-
-      //console.log("Payload preparado para guardar incapacidad:", payload);
 
       const response = await fetch("/api/incapacidades/guardar", {
         method: "POST",
@@ -369,24 +327,17 @@ const AccionesConsulta = ({
 
       if (!response.ok) {
         const error = await response.json();
-        console.error("❌ Error del backend al guardar incapacidad:", error);
         throw new Error(error.message || "Error al guardar incapacidad.");
       }
-
-      //console.log("✅ Incapacidad guardada correctamente.");
     } catch (error) {
       console.error("❌ Error al guardar incapacidad:", error);
       throw error;
     }
   };
 
-  //* Guardado global
   const handleGuardarGlobal = async () => {
     setLoading(true);
-    //console.log("🔄 Guardando globalmente...");
-
     try {
-      //* Mostrar alerta de confirmación si todas las respuestas son "NO"
       if (
         formulariosCompletos["Medicamentos"] === false &&
         formulariosCompletos["PaseEspecialidad"] === false &&
@@ -409,61 +360,40 @@ const AccionesConsulta = ({
             },
           }
         );
-
-        if (!result.isConfirmed) {
-          //console.log("🚫 Guardado cancelado por el usuario.");
-          return;
-        }
+        if (!result.isConfirmed) return;
       }
 
-      //console.log("📤 Iniciando guardado global...");
-
-      //* Realizar cada operación de guardado de forma secuencial para detenerse en caso de error
       await guardarDatosAdicionales();
       await guardarMedicamentos();
       await guardarPaseEspecialidad();
       await guardarIncapacidad();
-
-      //* Actualizar el clavestatus solo si todas las operaciones fueron exitosas
       await actualizarClavestatus(2);
 
       limpiarCacheLocalStorage();
-
-      //* Limpiar completamente el localStorage después de guardar
       localStorage.clear();
       limpiarFormulario();
 
-      //* Cifrar la claveConsulta con Base64
       const encryptedClaveConsulta = btoa(claveConsulta.toString());
+      router.push(`/consultas/recetas/ver-recetas?claveconsulta=${encryptedClaveConsulta}`);
 
-      //* Navegar a la otra pantalla enviando la claveConsulta cifrada
-      router.push(
-        `/consultas/recetas/ver-recetas?claveconsulta=${encryptedClaveConsulta}`
-      );
-
-      //* Mostrar alerta de éxito con claveConsulta en grande
       await showCustomAlert(
         "success",
         "Consulta Guardada",
         `
-    La consulta se ha guardado correctamente.<br/>
-    <strong style="color: #00e676; font-size: 1.2em;">Clave Consulta: ${claveConsulta}</strong>
-  `,
+          La consulta se ha guardado correctamente.<br/>
+          <strong style="color: #00e676; font-size: 1.2em;">Clave Consulta: ${claveConsulta}</strong>
+        `,
         "Aceptar"
       );
     } catch (error) {
       console.error("❌ Error durante el guardado global:", error);
-
-      //! Mostrar alerta de error estilizada
       await showCustomAlert(
         "error",
         "Error en el guardado",
         `
-    Hubo un problema al guardar los datos. Por favor, revisa los errores e intenta nuevamente.<br/>
-    <strong style="color: #ff1744;">Error: ${
-      error.message || "No especificado"
-    }</strong>
-  `,
+          Hubo un problema al guardar los datos. Por favor, revisa los errores e intenta nuevamente.<br/>
+          <strong style="color: #ff1744;">Error: ${error.message || "No especificado"}</strong>
+        `,
         "Aceptar"
       );
     } finally {
@@ -473,40 +403,92 @@ const AccionesConsulta = ({
 
   const tooltipData = tooltipFaltante();
 
+  // --- Tooltip control & botón ---
+  const wrapperRef = useRef(null);
+  const [showTip, setShowTip] = useState(false);
+  const blocked = !todosCompletos || loading;
+
+  // 🔧 CAMBIO: abrir el tooltip SIEMPRE en hover/focus (aunque no esté bloqueado),
+  // para que se vea también el mensaje de “¡Todo está completo!”
+  const openTip = () => setShowTip(true);
+  const closeTip = () => setShowTip(false);
+
+  const handleClick = () => {
+    if (blocked) {
+      setShowTip(true);
+      return;
+    }
+    handleGuardarGlobal();
+  };
+
+  // En móvil, solo mostramos tooltip con touch si está bloqueado, para no interferir el tap que guarda.
+  const handleTouch = () => {
+    if (!blocked) return;
+    setShowTip(true);
+    setTimeout(() => setShowTip(false), 2200);
+  };
+
   return (
-    <div className="flex space-x-4 mt-4">
-      <div className="relative inline-block group">
-        <button
-          onClick={handleGuardarGlobal}
-          disabled={!todosCompletos || loading}
-          className={`relative px-6 py-3 text-sm font-semibold text-white rounded-xl transition-all duration-300 overflow-hidden ${
-            todosCompletos && !loading
-              ? "bg-green-600/90 hover:bg-green-700/90 focus:outline-none"
-              : "bg-gray-600/90 cursor-not-allowed"
+    <div className="flex flex-wrap gap-3 mt-4">
+      <div
+        ref={wrapperRef}
+        className="relative inline-flex"
+        onMouseEnter={openTip}
+        onMouseLeave={closeTip}
+        onFocus={openTip}
+        onBlur={closeTip}
+        onTouchStart={handleTouch}
+      >
+        {/* Borde degradado + botón */}
+        <span
+          className={`rounded-2xl p-[2px] ${
+            blocked
+              ? "bg-gradient-to-r from-gray-400 to-gray-500"
+              : "bg-gradient-to-r from-emerald-400 via-emerald-600 to-emerald-400"
           }`}
         >
-          {loading ? "Cargando..." : "Guardar Todo"}
-        </button>
+          <button
+            onClick={handleClick}
+            aria-disabled={blocked}
+            title={blocked ? "Completa los formularios para habilitar el guardado" : "Guardar todo"}
+            className={`relative px-5 sm:px-6 py-3 text-sm font-semibold rounded-xl shadow-md transition-all duration-200 
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+              ${
+                blocked
+                  ? "text-white bg-gradient-to-r from-gray-600 to-gray-700 cursor-not-allowed"
+                  : "text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-emerald-500 hover:to-green-500 focus-visible:ring-indigo-300"
+              }`}
+            aria-describedby="tooltip-acciones"
+          >
+            <span className="inline-flex items-center gap-2">
+              <span className={`inline-block h-2.5 w-2.5 rounded-full ${blocked ? "bg-gray-300" : "bg-emerald-400"}`} />
+              {loading ? "Guardando..." : "Guardar Todo"}
+            </span>
+          </button>
+        </span>
 
-        <div className="absolute invisible opacity-0 group-hover:visible group-hover:opacity-100 bottom-full left-1/2 -translate-x-1/2 mb-3 w-80 transition-all duration-300 ease-in-out transform group-hover:translate-y-0 translate-y-2">
-          <div className="relative p-4 bg-gradient-to-br from-gray-900/95 to-gray-800/95 backdrop-blur-md rounded-2xl border border-white/10 shadow-[0_0_30px_rgba(34,197,94,0.3)]">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-green-500/20">
-                <span className="text-lg">{tooltipMessage.icon}</span>
+        {/* Tooltip en portal, siempre arriba */}
+        <FloatingTooltip
+          anchorRef={wrapperRef}
+          open={showTip}
+          onClose={closeTip}
+          placement="top"
+          offset={12}
+        >
+          <div id="tooltip-acciones" className="space-y-2">
+            <div className="flex items-center gap-3">
+              <div
+                className={`flex items-center justify-center w-8 h-8 rounded-full ${
+                  blocked ? "bg-amber-500/20 text-amber-300" : "bg-emerald-500/20 text-emerald-300"
+                }`}
+              >
+                <span className="text-lg">{tooltipData.icon}</span>
               </div>
-              <h3 className="text-sm font-semibold text-white">
-                {tooltipMessage.title}
-              </h3>
+              <h3 className="text-sm font-semibold text-white">{tooltipData.title}</h3>
             </div>
-            <div className="space-y-2">
-              <p className="text-sm text-gray-300">
-                {tooltipMessage.description}
-              </p>
-            </div>
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-green-500/10 to-blue-500/10 blur-xl opacity-50"></div>
-            <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-gradient-to-br from-gray-900/95 to-gray-800/95 rotate-45 border-r border-b border-white/10"></div>
+            <p className="text-sm text-gray-300 leading-snug">{tooltipData.description}</p>
           </div>
-        </div>
+        </FloatingTooltip>
       </div>
     </div>
   );
