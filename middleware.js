@@ -13,6 +13,8 @@ const rolePermissions = {
   "11": ["/inicio-servicio-medico", "/especialista", "/capturas/orden-de-estudio-de-laboratorio"], //* Permisos para médico especialista
 };
 
+///! Isra estuvo aquí
+
 export function middleware(request) {
   const { pathname } = request.nextUrl;
   const lowerPath = pathname.toLowerCase();
